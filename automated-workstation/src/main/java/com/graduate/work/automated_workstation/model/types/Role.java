@@ -1,4 +1,4 @@
-package com.graduate.work.automated_workstation.model.entity.types;
+package com.graduate.work.automated_workstation.model.types;
 
 /**
  * Enumeration representing different roles for users.

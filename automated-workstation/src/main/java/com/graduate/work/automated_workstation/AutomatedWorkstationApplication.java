@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @SpringBootApplication
 @EnableScheduling
 @EnableDiscoveryClient
-public class    AutomatedWorkstationApplication {
+public class AutomatedWorkstationApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AutomatedWorkstationApplication.class, args);
