@@ -1,6 +1,5 @@
 package com.graduate.work.domain;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -16,16 +15,22 @@ import java.util.List;
 @Getter
 @Entity
 @Builder
-public class Equipment {
+public class Client {
 
     @Id
-    Long id;
+    private Long id;
 
-    String hostname;
-    String model;
-    String serialNumber;
+    String name;
+    String surname;
+    String login;
+    String password; //TODO: Hash password
+    String email;
+    String ip;
 
     @OneToMany
-    private List<Modem> modems;
+    private List<SimCard> simCards;
+
+    @OneToMany
+    private List<Object> objects;
 
 }

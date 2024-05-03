@@ -2,9 +2,6 @@
 Дипломная работа
 В качестве темы проекта выбрано техническое задание тендера https://rostender.info/region/moskva-gorod/70171420-tender-razrabotka-programmnogo-obespecheniya-avtomatizirovannoe-rabochee-mesto-po-kontrolyu-za-sim-kartami-arm-multisimbox
 
-
-
-
 ## Task1 ##
     Многомодульный проект
         бизнес модуль с контролами.
@@ -31,7 +28,6 @@
             webflux<->automated-workstation
         automated-workstation:
         internal-api-client:
-
             
             SIM карта:
                 !ICCID
@@ -45,11 +41,11 @@
                 ->(Модем) IMEI последнего модема через который передает SIM
             
             Оборудование:
-
+                Нostname;
                 Модель оборудования;
                 !Серийный номер оборудования; 
                 ->>(Модем) IMEI модема(ов) в оборудовании;
-                
+            
             Модем:
                 !IMEI модема
                 ->(Оборудование) Серийный номер оборудования

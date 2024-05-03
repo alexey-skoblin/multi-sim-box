@@ -10,32 +10,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.awt.*;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Entity
 @Builder
-public class SimCard {
+public class Object {
 
     @Id
-    private Long id;
+    Long id;
 
-    private String iccid;
-    private Status status;
-    private String defNumber;
-    private String mobileOperator;
-    private String tariff;
-    private LocalDateTime lastActivation;
-    private Point lastLocation;
-    private Double trafficForYesterday;
+    String address;
+    Point location;
+    Status status;
 
     @ManyToOne
     private Client client;
-
-    @ManyToOne
-    private Modem modem;
 
     @Getter
     public enum Status {
@@ -48,4 +39,5 @@ public class SimCard {
             this.status = status;
         }
     }
+
 }

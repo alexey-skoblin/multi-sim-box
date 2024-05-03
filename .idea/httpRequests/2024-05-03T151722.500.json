@@ -1,0 +1,7 @@
+{
+  "timestamp": "2024-05-03T11:17:22.716+00:00",
+  "path": "/automated-workstation-client-service/simCard",
+  "status": 500,
+  "error": "Internal Server Error",
+  "requestId": "6b5a333b-5"
+}

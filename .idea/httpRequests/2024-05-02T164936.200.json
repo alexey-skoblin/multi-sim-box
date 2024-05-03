@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "iccid": "12345678901234567890",
+  "status": "ACTIVE",
+  "defNumber": "123456789",
+  "mobileOperator": "MobOperator",
+  "tariff": "Tariff",
+  "lastActivation": "2024-05-02T16:49:36.806853304",
+  "lastLocation": {
+    "x": 140.0,
+    "y": 43.0
+  },
+  "client": null,
+  "modem": null,
+  "trafficForYesterday": 0.0
+}
