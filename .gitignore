@@ -33,3 +33,4 @@ fabric.properties
 out
 gen
 *.mvm
+!*.mvn/wrapper/maven-wrapper.jar
