@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClientService {
 
-   Client create() {
-       return Client.builder().build();
-   }
+    Client create() {
+        return Client.builder().build();
+    }
 
 
 }

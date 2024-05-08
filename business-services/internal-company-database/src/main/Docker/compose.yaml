@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  internal-company-database-db:
+    image: postgres
+    ports:
+      - "5300:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+#        volumes:
+#            - ../../../data/postgres:/var/lib/postgresql/data

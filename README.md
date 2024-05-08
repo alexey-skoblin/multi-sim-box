@@ -1,8 +1,11 @@
 # README #
+
 Дипломная работа
-В качестве темы проекта выбрано техническое задание тендера https://rostender.info/region/moskva-gorod/70171420-tender-razrabotka-programmnogo-obespecheniya-avtomatizirovannoe-rabochee-mesto-po-kontrolyu-za-sim-kartami-arm-multisimbox
+В качестве темы проекта выбрано техническое задание
+тендера https://rostender.info/region/moskva-gorod/70171420-tender-razrabotka-programmnogo-obespecheniya-avtomatizirovannoe-rabochee-mesto-po-kontrolyu-za-sim-kartami-arm-multisimbox
 
 ## Task1 ##
+
     Многомодульный проект
         бизнес модуль с контролами.
         Фронт на анджинсе.
@@ -20,13 +23,17 @@
     мавен. Тестирование. (Unit). Кукумбер. 
 
 ### Техническое задание ###
+
     Многомодульный проект
         internal-company-database(BDO):
             react-client<-automated-workstation
         mobile-operator-personal-account(личный кабинет мобильного оператора)
             react-client<->automated-workstation
+
 [//]: # (        internal-api-client:)
+
 [//]: # (            react-client<->automated-workstation)
+
         automated-workstation:
             react-client<->internal-api-client
             react-client<->mobile-operator-personal-account

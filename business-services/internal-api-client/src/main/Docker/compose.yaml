@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  internal-api-client-db:
+    image: postgres
+    ports:
+      - "5200:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+#    volumes:
+#      - ../../../data/postgres:/var/lib/postgresql/data

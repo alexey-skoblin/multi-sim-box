@@ -20,7 +20,7 @@ public class TestController {
 //        connectableFlux.connect();
 //    }
 
-    @GetMapping( value = "/test", produces = TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/test", produces = TEXT_EVENT_STREAM_VALUE)
     public Mono<String> test(@RequestParam String text) {
 //        if (connectableFlux == null) {
 //            initFlux();

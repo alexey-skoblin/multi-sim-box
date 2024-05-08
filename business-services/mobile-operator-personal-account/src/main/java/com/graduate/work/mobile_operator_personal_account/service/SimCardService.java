@@ -4,7 +4,7 @@ import com.graduate.work.model.entity.SimCard;
 
 public class SimCardService {
 
-    SimCard create(){
+    SimCard create() {
         return SimCard.builder().build();
     }
 

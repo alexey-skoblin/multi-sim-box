@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 @Builder
 @ToString
-public class Modem{
+public class Modem {
 
     @Id
     private Long id;

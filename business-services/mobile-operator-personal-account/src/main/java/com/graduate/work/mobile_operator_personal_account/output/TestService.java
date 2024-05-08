@@ -5,9 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.client.RestClient;
-import reactor.util.retry.Retry;
-
-import java.time.LocalDateTime;
 
 @Configuration
 @Slf4j
@@ -20,11 +17,11 @@ public class TestService {
     }
 
     @Scheduled(fixedRate = 1000)
-    public void run(){
+    public void run() {
         get("mobile-operator-personal-account");
     }
 
-    public void get(String url){
+    public void get(String url) {
         String request = MobileOperatorPersonalAccountApplication.class.getSimpleName();
         webClient.get()
                 .uri("http://" + url + "/test?text=" + request)

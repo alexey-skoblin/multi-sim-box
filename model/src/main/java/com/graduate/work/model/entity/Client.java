@@ -14,10 +14,7 @@ import java.util.List;
 @Entity
 @Builder
 @ToString
-public class Client{
-
-    @Id
-    private Long id;
+public class Client {
 
     String name;
     String surname;
@@ -25,7 +22,8 @@ public class Client{
     String hash;
     String email;
     String ip;
-
+    @Id
+    private Long id;
     @Setter
     @OneToMany
     @ToString.Exclude
