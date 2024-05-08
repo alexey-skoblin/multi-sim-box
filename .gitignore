@@ -33,4 +33,11 @@ fabric.properties
 out
 gen
 *.mvm
-!*.mvn/wrapper/maven-wrapper.jar
+/business-services/../.mvn/
+/business-services/../target/
+/business-services/../mvnv
+/business-services/../mvnv.cmd
+/infrastructure/../.mvn/
+/infrastructure/../target/
+/infrastructure/../mvnm
+/infrastructure/../mvnm.cmd
