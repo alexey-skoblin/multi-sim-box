@@ -35,5 +35,5 @@ gen
 *.mvm
 **/.mvn/
 **/target/
-**/mvnv
-**/mvnv.cmd
+**/mvnw
+**/mvnw.cmd
