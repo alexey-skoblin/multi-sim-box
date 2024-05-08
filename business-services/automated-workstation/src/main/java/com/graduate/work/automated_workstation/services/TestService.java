@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
+import org.springframework.web.client.RestClient;
 import reactor.util.retry.Retry;
 
 import java.time.Duration;
@@ -21,10 +20,11 @@ import java.time.LocalDateTime;
 @Slf4j
 public class TestService {
 
-    private final WebClient webClient;
 
-    public TestService(WebClient.Builder builder) {
-        this.webClient = builder.build();
+    private final RestClient webClient;
+
+    public TestService() {
+        this.webClient = RestClient.create();
     }
 
     @Scheduled(fixedRate = 1000)
@@ -41,9 +41,6 @@ public class TestService {
         String request = AutomatedWorkstationApplication.class.getSimpleName();
         webClient.get()
                 .uri("http://" + url + "/test?text=" + request)
-                .retrieve()
-                .bodyToMono(String.class)
-                .retryWhen(Retry.max(3))
-                .subscribe(x->log.info("Output: " + x));
+                .retrieve();
     }
 }

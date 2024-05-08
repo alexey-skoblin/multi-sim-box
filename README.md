@@ -21,14 +21,17 @@
 
 ### Техническое задание ###
     Многомодульный проект
-        eureka-server:
         internal-company-database(BDO):
-            webflux<-automated-workstation
+            react-client<-automated-workstation
         mobile-operator-personal-account(личный кабинет мобильного оператора)
-            webflux<->automated-workstation
+            react-client<->automated-workstation
+[//]: # (        internal-api-client:)
+[//]: # (            react-client<->automated-workstation)
         automated-workstation:
-        internal-api-client:
-            
+            react-client<->internal-api-client
+            react-client<->mobile-operator-personal-account
+            react-client->internal-company-database
+
             SIM карта:
                 !ICCID
                 Статус SIM
@@ -67,3 +70,8 @@
                 IP
                 ->>(Sim карта) ICCID sim карт
                 ->>(Объект) Номера объектов
+
+            
+        
+            
+

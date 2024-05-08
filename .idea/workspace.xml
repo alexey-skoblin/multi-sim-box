@@ -5,58 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0858fc05-948d-49a1-8e2b-6221eae6312a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controllers/SimCardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/business-services/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Object.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.Техническое_задание.docx#" beforeDir="false" afterPath="$PROJECT_DIR$/.~lock.Техническое_задание.docx#" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/Randomizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/data/MobileOperator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/generator/RandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/generator/entity/ClientRandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/generator/entity/EquipmentRandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/generator/entity/ModemRandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/generator/entity/ObjectRandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/main/java/com/graduate/work/entity_and_event_generator/random/generator/entity/SimCardRandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/test/java/com/graduate/work/entity_and_event_generator/random/generator/entity/ClientRandomGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/test/java/com/graduate/work/entity_and_event_generator/random/generator/entity/EquipmentRandomGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/test/java/com/graduate/work/entity_and_event_generator/random/generator/entity/ModemRandomGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/test/java/com/graduate/work/entity_and_event_generator/random/generator/entity/ObjectRandomGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/entity-and-event-generator/src/test/java/com/graduate/work/entity_and_event_generator/random/generator/entity/SimCardRandomGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/java/com/graduate/work/internal_company_database/service/ClientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/java/com/graduate/work/internal_company_database/service/ObjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/service/ClientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/service/SimCardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/src/main/java/com/graduate/work/automated_workstation/AutomatedWorkstationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/AutomatedWorkstationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/src/main/java/com/graduate/work/automated_workstation/input/Notifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controllers/Notifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/src/main/java/com/graduate/work/automated_workstation/input/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controllers/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/src/main/java/com/graduate/work/automated_workstation/output/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/services/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/automated-workstation/src/test/java/com/graduate/work/automated_workstation/AutomatedWorkstationApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/test/java/com/graduate/work/automated_workstation/AutomatedWorkstationApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/eureka-server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/eureka-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/eureka-server/src/main/java/com/graduate/work/eureka_server/EurekaServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/src/main/java/com/graduate/work/eureka_server/EurekaServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/eureka-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/eureka-server/src/test/java/com/graduate/work/eureka_server/EurekaServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/src/test/java/com/graduate/work/eureka_server/EurekaServerApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-api-client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-api-client/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-api-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-api-client/src/main/java/com/graduate/work/internal_api_client/InternalApiClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/src/main/java/com/graduate/work/internal_api_client/InternalApiClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-api-client/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-api-client/src/test/java/com/graduate/work/internal_api_client/InternalApiClientApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/src/test/java/com/graduate/work/internal_api_client/InternalApiClientApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/src/main/java/com/graduate/work/internal_company_database/InternalCompanyDatabaseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/java/com/graduate/work/internal_company_database/InternalCompanyDatabaseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/src/main/java/com/graduate/work/internal_company_database/input/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/java/com/graduate/work/internal_company_database/input/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/internal-company-database/src/test/java/com/graduate/work/internal_company_database/InternalCompanyDatabaseApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/test/java/com/graduate/work/internal_company_database/InternalCompanyDatabaseApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/MobileOperatorPersonalAccountApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/MobileOperatorPersonalAccountApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/input/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/input/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/output/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/output/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisiness/mobile-operator-personal-account/src/test/java/com/graduate/work/mobile_operator_personal_account/MobileOperatorPersonalAccountApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/test/java/com/graduate/work/mobile_operator_personal_account/MobileOperatorPersonalAccountApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/EquipmentModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Modem.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Modem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/SimCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/SimCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/SimCardStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/generator/IccidGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/IccidGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/type/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/automated-workstation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controllers/Notifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controller/Notifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controllers/SimCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controller/SimCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/services/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/java/com/graduate/work/automated_workstation/services/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/automated-workstation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/automated-workstation/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/internal-api-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/internal-api-client/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-api-client/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/internal-company-database/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/internal-company-database/src/main/java/com/graduate/work/internal_company_database/input/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/java/com/graduate/work/internal_company_database/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/internal-company-database/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/internal-company-database/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/output/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account/output/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/mobile-operator-personal-account/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-services/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/graduate/work/model/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/graduate/work/model/entity/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/IccidGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Modem.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/graduate/work/model/entity/Modem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/graduate/work/model/entity/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/graduate/work/model/types/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/graduate/work/domain/SimCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/graduate/work/model/entity/SimCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Client$ClientBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Equipment$EquipmentBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Equipment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/IccidGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Modem$ModemBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Modem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Object$ObjectBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Object$Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Object.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/SimCard$SimCardBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/SimCard$Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/com/graduate/work/domain/SimCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/domain-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/domain-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/eureka-server/src/main/java/com/graduate/work/eureka_server/EurekaServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/eureka-server/src/main/java/com/graduate/work/eureka_server/EurekaServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,11 +114,15 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -123,6 +152,13 @@
     "HTTP Request.InternalCompanyDatabaseApplication | #1.executor": "Run",
     "HTTP Request.generated-requests | #1.executor": "Run",
     "HTTP Request.generated-requests | #2.executor": "Run",
+    "JUnit.ClientRandomGeneratorTest.executor": "Run",
+    "JUnit.ClientRandomGeneratorTest.generate.executor": "Run",
+    "JUnit.EquipmentRandomGeneratorTest.generate.executor": "Run",
+    "JUnit.ModemRandomGeneratorTest.generate.executor": "Run",
+    "JUnit.ObjectRandomGeneratorTest.generate.executor": "Run",
+    "JUnit.SimCardRandomGeneratorTest.generate.executor": "Run",
+    "JUnit.entity in entity-and-event-generator.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.MultiSimBox.executor": "Run",
     "Maven.domain [org.apache.maven.plugins:maven-install-plugin:3.1.1:install-file].executor": "Run",
@@ -131,12 +167,14 @@
     "Maven.domain [org.apache.maven.plugins:maven-resources-plugin:3.3.1:resources].executor": "Run",
     "Maven.domain [package].executor": "Run",
     "Maven.multi-sim-box [compile].executor": "Run",
+    "Maven.multi-sim-box.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ApiGatewayApplication.executor": "Run",
     "Spring Boot.AutomatedWorkstationApplication.executor": "Run",
     "Spring Boot.EurekaServerApplication.executor": "Run",
@@ -145,10 +183,12 @@
     "Spring Boot.InternalCompanyDatabaseApplication.executor": "Run",
     "Spring Boot.MobileOperatorPersonalAccountApplication.executor": "Run",
     "Spring Boot.MultiSimBoxApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "ignore_missing_gitignore": "true",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/lesha/Рабочий стол/Основной/Java/multi-sim-box/business-services/internal-company-database",
+    "last_opened_file_path": "/home/lesha/Рабочий стол/Основной/Java/multi-sim-box/model",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -174,11 +214,18 @@
       <recent name="$PROJECT_DIR$/mobile-operator-personal-account/src/main/java/com/graduate/work/mobile_operator_personal_account" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/business-services" />
       <recent name="$PROJECT_DIR$/infrastructure" />
       <recent name="$PROJECT_DIR$/bisiness" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.graduate.work" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.graduate.work.entity_and_event_generator.random.generator.entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.graduate.work.mobile_operator_personal_account.output" />
@@ -199,17 +246,80 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
-    <configuration name="AutomatedWorkstationApplication | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/AutomatedWorkstationApplication.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
+  <component name="RunManager" selected="JUnit.SimCardRandomGeneratorTest.generate">
+    <configuration name="EquipmentRandomGeneratorTest.generate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entity-and-event-generator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduate.work.entity_and_event_generator.random.generator.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity.EquipmentRandomGeneratorTest" />
+      <option name="METHOD_NAME" value="generate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="InternalCompanyDatabaseApplication | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/InternalCompanyDatabaseApplication.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
+    <configuration name="ModemRandomGeneratorTest.generate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entity-and-event-generator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduate.work.entity_and_event_generator.random.generator.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity.ModemRandomGeneratorTest" />
+      <option name="METHOD_NAME" value="generate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
+    <configuration name="ObjectRandomGeneratorTest.generate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entity-and-event-generator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduate.work.entity_and_event_generator.random.generator.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity.ObjectRandomGeneratorTest" />
+      <option name="METHOD_NAME" value="generate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="MultiSimBox" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+    <configuration name="SimCardRandomGeneratorTest.generate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entity-and-event-generator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduate.work.entity_and_event_generator.random.generator.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.graduate.work.entity_and_event_generator.random.generator.entity.SimCardRandomGeneratorTest" />
+      <option name="METHOD_NAME" value="generate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="entity in entity-and-event-generator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entity-and-event-generator" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/business-services/entity-and-event-generator/src/test/java/com/graduate/work/entity_and_event_generator/random/generator/entity" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="multi-sim-box" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -251,6 +361,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EntityAndEventGeneratorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="entity-and-event-generator" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduate.work.entity_and_event_generator.EntityAndEventGeneratorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduate.work.eureka_server.EurekaServerApplication" />
@@ -265,59 +382,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InternalCompanyDatabaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="InternalCompanyDatabaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="internal-company-database" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduate.work.internal_company_database.InternalCompanyDatabaseApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.graduate.work.internal_company_database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MobileOperatorPersonalAccountApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="MobileOperatorPersonalAccountApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="mobile-operator-personal-account" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduate.work.mobile_operator_personal_account.MobileOperatorPersonalAccountApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.graduate.work.mobile_operator_personal_account.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MultiSimBoxApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="multi-sim-box" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduate.work.MultiSimBoxApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.AutomatedWorkstationApplication | #1" />
-      <item itemvalue="HTTP Request.generated-requests | #2" />
-      <item itemvalue="HTTP Request.InternalCompanyDatabaseApplication | #1" />
-      <item itemvalue="Maven.MultiSimBox" />
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="JUnit.EquipmentRandomGeneratorTest.generate" />
+      <item itemvalue="JUnit.ModemRandomGeneratorTest.generate" />
+      <item itemvalue="JUnit.ObjectRandomGeneratorTest.generate" />
+      <item itemvalue="JUnit.SimCardRandomGeneratorTest.generate" />
+      <item itemvalue="JUnit.entity in entity-and-event-generator" />
+      <item itemvalue="Maven.multi-sim-box" />
+      <item itemvalue="Spring Boot.EntityAndEventGeneratorApplication" />
       <item itemvalue="Spring Boot.InternalApiClientApplication" />
-      <item itemvalue="Spring Boot.EurekaServerApplication" />
-      <item itemvalue="Spring Boot.AutomatedWorkstationApplication" />
-      <item itemvalue="Spring Boot.MultiSimBoxApplication" />
-      <item itemvalue="Spring Boot.MobileOperatorPersonalAccountApplication" />
       <item itemvalue="Spring Boot.InternalCompanyDatabaseApplication" />
+      <item itemvalue="Spring Boot.MobileOperatorPersonalAccountApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.AutomatedWorkstationApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.AutomatedWorkstationApplication | #1" />
-        <item itemvalue="Spring Boot.InternalCompanyDatabaseApplication" />
-        <item itemvalue="Spring Boot.MobileOperatorPersonalAccountApplication" />
-        <item itemvalue="HTTP Request.InternalCompanyDatabaseApplication | #1" />
+        <item itemvalue="JUnit.SimCardRandomGeneratorTest.generate" />
+        <item itemvalue="JUnit.entity in entity-and-event-generator" />
+        <item itemvalue="JUnit.ObjectRandomGeneratorTest.generate" />
+        <item itemvalue="JUnit.ModemRandomGeneratorTest.generate" />
+        <item itemvalue="JUnit.EquipmentRandomGeneratorTest.generate" />
       </list>
     </recent_temporary>
   </component>
@@ -373,6 +473,13 @@
       <workItem from="1714047219546" duration="5344000" />
       <workItem from="1714562529787" duration="11119000" />
       <workItem from="1714654280026" duration="6897000" />
+      <workItem from="1714988202269" duration="955000" />
+      <workItem from="1714990829854" duration="9619000" />
+      <workItem from="1715010713970" duration="7494000" />
+      <workItem from="1715025698176" duration="231000" />
+      <workItem from="1715025944044" duration="2528000" />
+      <workItem from="1715156224537" duration="8706000" />
+      <workItem from="1715173137916" duration="3971000" />
     </task>
     <servers />
   </component>

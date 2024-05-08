@@ -4,7 +4,7 @@ import com.graduate.work.mobile_operator_personal_account.MobileOperatorPersonal
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.client.RestClient;
 import reactor.util.retry.Retry;
 
 import java.time.LocalDateTime;
@@ -13,25 +13,22 @@ import java.time.LocalDateTime;
 @Slf4j
 public class TestService {
 
-    private final WebClient webClient;
+    private final RestClient webClient;
 
-    public TestService(WebClient.Builder builder) {
+    public TestService(RestClient.Builder builder) {
         this.webClient = builder.build();
     }
 
     @Scheduled(fixedRate = 1000)
     public void run(){
-        get("automated-workstation-client-service");
+        get("mobile-operator-personal-account");
     }
 
     public void get(String url){
         String request = MobileOperatorPersonalAccountApplication.class.getSimpleName();
         webClient.get()
                 .uri("http://" + url + "/test?text=" + request)
-                .retrieve()
-                .bodyToMono(String.class)
-                .retryWhen(Retry.max(3))
-                .subscribe(x->log.info("Output: " + x));
+                .retrieve();
     }
 
 }

@@ -10,18 +10,24 @@
         <module name="internal-api-client" />
         <module name="mobile-operator-personal-account" />
         <module name="internal-company-database" />
+        <module name="entity-and-event-generator" />
         <module name="domain" />
         <module name="api-gateway" />
+        <module name="model" />
         <module name="eureka-server" />
         <module name="automated-workstation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="domain" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="automated-workstation" options="-parameters" />
       <module name="domain" options="" />
+      <module name="entity-and-event-generator" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="internal-api-client" options="-parameters" />
       <module name="internal-company-database" options="-parameters" />

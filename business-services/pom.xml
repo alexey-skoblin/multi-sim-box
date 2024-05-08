@@ -14,6 +14,7 @@
         <module>internal-api-client</module>
         <module>internal-company-database</module>
         <module>mobile-operator-personal-account</module>
+        <module>entity-and-event-generator</module>
     </modules>
 
 </project>
