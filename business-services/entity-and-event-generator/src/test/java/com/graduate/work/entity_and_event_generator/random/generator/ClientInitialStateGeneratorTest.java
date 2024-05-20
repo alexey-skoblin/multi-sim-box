@@ -9,11 +9,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Slf4j
-@SpringBootTest
-class ClientRandomGeneratorTest {
+@SpringBootTest(properties =
+        """
+                spring.datasource.url=jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;NON_KEYWORDS=KEY,VALUE
+                spring.datasource.driverClassName=org.h2.Driver
+                spring.datasource.driver-class-name=org.h2.Driver"""
+)
+class ClientInitialStateGeneratorTest {
 
     @Autowired
-    private ClientRandomGenerator clientRandomGenerator;
+    private ClientInitialStateGenerator clientRandomGenerator;
 
     @Test
     void generate() {

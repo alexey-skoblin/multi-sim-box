@@ -1,11 +1,11 @@
 package com.graduate.work.entity_and_event_generator.random.generator;
 
-import com.graduate.work.entity_and_event_generator.random.RandomGenerator;
 import com.graduate.work.model.entity.Equipment;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class EquipmentRandomGenerator extends RandomGenerator {
+@Service
+public class EquipmentInitialStateGenerator extends InitialStateGenerator {
 
     @Override
     public Equipment create() {

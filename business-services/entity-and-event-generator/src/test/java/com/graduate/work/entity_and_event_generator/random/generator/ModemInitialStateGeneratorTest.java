@@ -8,12 +8,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
+@SpringBootTest(properties =
+        """
+                spring.datasource.url=jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;NON_KEYWORDS=KEY,VALUE
+                spring.datasource.driverClassName=org.h2.Driver
+                spring.datasource.driver-class-name=org.h2.Driver"""
+)
 @Slf4j
-class ModemRandomGeneratorTest {
+class ModemInitialStateGeneratorTest {
 
     @Autowired
-    private ModemRandomGenerator modemRandomGenerator;
+    private ModemInitialStateGenerator modemRandomGenerator;
 
     @Test
     void generate() {
