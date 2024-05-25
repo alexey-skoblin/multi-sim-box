@@ -4,72 +4,74 @@ package com.graduate.work.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Getter
 @Entity
 @Builder
 @ToString
 public class Modem {
 
     @Id
-    @Getter
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Getter
-    @Setter
+    @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Getter
     private String imei;
 
-    @Getter
     @ManyToOne
     @ToString.Exclude
     private Equipment equipment;
 
+    @Setter
+    @OneToMany(mappedBy = "modem", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "id")
+    @ToString.Exclude
+    private Map<Long, SimCard> simCards;
+
+    public void setStatus(Status status){
+        if (this.status == status) {
+            return;
+        }
+        if (this.status == Status.ACTIVE) {
+            this.status = Status.INACTIVE;
+            if (this.equipment != null) {
+                this.setEquipment(null);
+            }
+            this.clearSimCards();
+        } else if (this.status == Status.INACTIVE) {
+            this.status = Status.ACTIVE;
+        }
+    }
+
     public void setEquipment(Equipment equipment) {
         if (this.equipment != null) {
-            this.equipment.removeModem(this);
+            this.equipment.getModems().remove(this.id);
         }
+        this.equipment = equipment;
         if (equipment != null) {
-            this.equipment = equipment;
-            equipment.addModem(this);
+            if (equipment.getModems() == null) {
+                equipment.setModems(new HashMap<>());
+            }
+            equipment.getModems().put(this.id, this);
         } else {
-            this.equipment = null;
+            this.setStatus(Status.INACTIVE);
         }
     }
 
-    @OneToMany(mappedBy = "modem")
-    @ToString.Exclude
-    @Builder.Default
-    private List<SimCard> simCards = new ArrayList<>();
-
-    public int getSizeSimCards() {
-        return simCards.size();
-    }
-
-    public void addSimCard(SimCard simCard) {
-        simCards.add(simCard);
-        if (simCard.getModem() != this) {
-            simCard.setModem(this);
+    public void clearSimCards() {
+        if (simCards == null) {
+            return;
         }
-    }
-
-    public SimCard getSimCard(int id){
-       return simCards.get(id);
-    }
-
-    public boolean containsSimCard(SimCard simCard) {
-        return simCards.contains(simCard);
-    }
-
-    public void removeSimCard(SimCard simCard) {
-        simCards.remove(simCard);
-        simCard.setModem(null);
+        for (SimCard simCard : simCards.values()) {
+            simCard.setModem(null);
+        }
+        simCards.clear();
     }
 
     public enum Status {

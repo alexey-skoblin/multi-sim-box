@@ -1,7 +1,8 @@
-package com.graduate.work.entity_and_event_generator.random.updater;
+package com.graduate.work.entity_and_event_generator.random.updater.internal;
 
 import com.graduate.work.entity_and_event_generator.random.generator.EquipmentInitialStateGenerator;
 import com.graduate.work.model.entity.Equipment;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
                 spring.datasource.driverClassName=org.h2.Driver
                 spring.datasource.driver-class-name=org.h2.Driver"""
 )
-class EquipmentDataUpdaterTest {
+@Setter(onMethod_ = {@Autowired})
+class EquipmentInternalUpdaterTest {
 
     EquipmentInitialStateGenerator equipmentRandomGenerator;
-    EquipmentDataUpdater equipmentRandomUpdater;
-
-    @Autowired
-    public void setEquipmentRandomGenerator(EquipmentInitialStateGenerator equipmentRandomGenerator) {
-        this.equipmentRandomGenerator = equipmentRandomGenerator;
-    }
-
-    @Autowired
-    public void setEquipmentRandomUpdater(EquipmentDataUpdater equipmentRandomUpdater) {
-        this.equipmentRandomUpdater = equipmentRandomUpdater;
-    }
+    EquipmentInternalUpdater equipmentRandomUpdater;
 
     @Test
     void updateHostName() {

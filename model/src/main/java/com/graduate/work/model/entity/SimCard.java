@@ -1,14 +1,16 @@
 package com.graduate.work.model.entity;
 
 
+import com.graduate.work.model.converter.Point2DConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.awt.geom.Point2D;
+import java.util.HashMap;
 
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Getter
 @Entity
 @Builder
 @ToString
@@ -18,10 +20,9 @@ public class SimCard {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Setter
     private String iccid;
 
-    @Setter
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Setter
@@ -37,6 +38,7 @@ public class SimCard {
     private long lastActionDate;
 
     @Setter
+    @Convert(converter = Point2DConverter.class)
     private Point2D.Double lastLocation;
 
     @Setter
@@ -46,35 +48,48 @@ public class SimCard {
     @ManyToOne
     private Client client;
 
-    public void setClient(Client client) {
-        if (this.client != null) {
-            this.client.removeSimCard(this);
-        }
-        if (client != null) {
-            this.client = client;
-            if (!client.containsSimCard(this)) {
-                client.addSimCard(this);
-            }
-        } else {
-            this.client = null;
-        }
-    }
-
     @ToString.Exclude
     @ManyToOne
     private Modem modem;
 
+    public void setStatus(Status status){
+        if (this.status == status) {
+            return;
+        }
+        if (this.status == Status.ACTIVE) {
+            this.status = Status.INACTIVE;
+        } else if (this.status == Status.INACTIVE) {
+            this.status = Status.ACTIVE;
+        }
+        this.setLastActionDate(System.currentTimeMillis());
+    }
+
+    public void setClient(Client client) {
+        if (this.client != null) {
+            this.client.getSimCards().remove(this.id);
+        }
+        this.client = client;
+        if (client != null) {
+            if (client.getSimCards() == null) {
+                client.setSimCards(new HashMap<>());
+            }
+
+            client.getSimCards().put(this.id, this);
+        } else {
+            this.setStatus(Status.INACTIVE);
+        }
+    }
+
     public void setModem(Modem modem) {
         if (this.modem != null) {
-            this.modem.removeSimCard(this);
+            this.modem.getSimCards().remove(this.id);
         }
+        this.modem = modem;
         if (modem != null) {
-            this.modem = modem;
-            if (!modem.containsSimCard(this)) {
-                modem.addSimCard(this);
+            if (modem.getSimCards() == null) {
+                modem.setSimCards(new HashMap<>());
             }
-        } else {
-            this.modem = null;
+            modem.getSimCards().put(this.id, this);
         }
     }
 

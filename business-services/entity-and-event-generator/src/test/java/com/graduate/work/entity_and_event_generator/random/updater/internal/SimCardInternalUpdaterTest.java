@@ -1,7 +1,8 @@
-package com.graduate.work.entity_and_event_generator.random.updater;
+package com.graduate.work.entity_and_event_generator.random.updater.internal;
 
 import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
 import com.graduate.work.model.entity.SimCard;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +17,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
                 spring.datasource.driverClassName=org.h2.Driver
                 spring.datasource.driver-class-name=org.h2.Driver"""
 )
-class SimCardDataUpdaterTest {
+@Setter(onMethod_ = {@Autowired})
+class SimCardInternalUpdaterTest {
 
     SimCardInitialStateGenerator simCardRandomGenerator;
-    SimCardDataUpdater simCardRandomUpdater;
-
-    @Autowired
-    public void setSimCardRandomGenerator(SimCardInitialStateGenerator simCardRandomGenerator) {
-        this.simCardRandomGenerator = simCardRandomGenerator;
-    }
-
-    @Autowired
-    public void setSimCardRandomUpdater(SimCardDataUpdater simCardRandomUpdater) {
-        this.simCardRandomUpdater = simCardRandomUpdater;
-    }
+    SimCardInternalUpdater simCardRandomUpdater;
 
     @Test
     void updateStatusAndLastActionDate() {
         SimCard simCard = simCardRandomGenerator.create();
         log.info(simCard.toString());
-        simCardRandomUpdater.getUpdateStatusAndLastActionDate().activate(simCard);
+        simCard.setStatus(SimCard.Status.ACTIVE);
         log.info(simCard.toString());
         assertNotNull(simCard.getStatus());
     }

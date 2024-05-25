@@ -1,5 +1,6 @@
 package com.graduate.work.entity_and_event_generator.random.generator;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
                 spring.datasource.driver-class-name=org.h2.Driver"""
 )
 @Slf4j
-class ObjectInitialStateGeneratorTest {
+@Setter(onMethod_ = {@Autowired})
+class FacilityInitialStateGeneratorTest {
 
-    @Autowired
-    private ObjectInitialStateGenerator objectRandomGenerator;
+    private FacilityInitialStateGenerator objectRandomGenerator;
 
     @Test
     void generate() {

@@ -4,75 +4,59 @@ package com.graduate.work.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Getter
 @Entity
 @Builder
 @ToString
 public class Equipment {
 
     @Id
-    @Getter
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id;
 
-    @Getter
     @Setter
     String hostname;
 
-    @Getter
     @Setter
     String model;
 
-    @Getter
     @Setter
     String serialNumber;
 
     @OneToOne
     @ToString.Exclude
-    private Object object;
+    private Facility facility;
 
-    public void setObject(Object object) {
-        this.object = object;
-        if (object != null)
-            object.setEquipment(this);
-    }
-
-    @OneToMany(mappedBy = "equipment")
+    @Setter
+    @OneToMany(mappedBy = "equipment", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "id")
     @ToString.Exclude
-    @Builder.Default
-    private List<Modem> modems = new ArrayList<>();
+    private Map<Long, Modem> modems;
 
-    public int sizeModems() {
-        return modems.size();
-    }
-
-    public void addModem(Modem modem)
-    {
-        modems.add(modem);
-        if (modem.getEquipment() != this) {
-            modem.setEquipment(this);
+    public void setFacility(Facility facility) {
+        if (this.facility != null) {
+            this.facility.setEquipment(null);
+        }
+        this.facility = facility;
+        if (facility != null) {
+            facility.setEquipment(this);
+        } else {
+            this.clearModems();
         }
     }
 
-    public Modem getModem(int id)
-    {
-        return modems.get(id);
+    public void clearModems() {
+        if (modems == null) {
+            return;
+        }
+        for (Modem modem : modems.values()) {
+            modem.setEquipment(null);
+        }
+        modems.clear();
     }
-
-    public boolean containsModem(Modem modem)
-    {
-        return modems.contains(modem);
-    }
-
-    public void removeModem(Modem modem)
-    {
-        modems.remove(modem);
-        modem.setEquipment(null);
-    }
-
 
 }

@@ -1,24 +1,23 @@
 package com.graduate.work.entity_and_event_generator.random.generator;
 
 import com.github.javafaker.Address;
-import com.graduate.work.model.entity.Object;
-import org.springframework.stereotype.Component;
+import com.graduate.work.model.entity.Facility;
 import org.springframework.stereotype.Service;
 
 import java.awt.geom.Point2D;
 
 @Service
-public class ObjectInitialStateGenerator extends InitialStateGenerator {
+public class FacilityInitialStateGenerator extends InitialStateGenerator<Facility> {
 
     @Override
-    public Object create() {
-        Address fakeHome = faker.address();
+    public Facility create() {
+        Address fakeHome = randomizer.address();
         String address = fakeHome.cityName() + ", " + fakeHome.streetAddress();
         double latitude = Double.parseDouble(fakeHome.latitude().replace(",", "."));
         double longitude = Double.parseDouble(fakeHome.longitude().replace(",", "."));
         Point2D.Double point = new Point2D.Double(latitude, longitude);
-        Object.Status status = Object.Status.INACTIVE;
-        return Object.builder()
+        Facility.Status status = Facility.Status.INACTIVE;
+        return Facility.builder()
                 .address(address)
                 .location(point)
                 .status(status)

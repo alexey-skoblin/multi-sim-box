@@ -1,42 +1,29 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.github.javafaker.Faker;
+import com.graduate.work.entity_and_event_generator.random.Randomizer;
 import com.graduate.work.entity_and_event_generator.random.event.Executable;
 import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.SimCardDataUpdater;
+import com.graduate.work.entity_and_event_generator.random.updater.internal.SimCardInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.SimCardRepository;
+import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.SimCard;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
+@AllArgsConstructor
 public class SimCardService implements Executable<SimCard> {
 
-    @Setter(onMethod_ = {@Autowired})
-    private Faker faker;
-    @Setter(onMethod_ = {@Autowired})
+    Randomizer randomizer;
+
     private SimCardInitialStateGenerator simCardRandomGenerator;
-    @Setter(onMethod_ = {@Autowired})
-    private SimCardDataUpdater simCardRandomUpdater;
-    @Setter(onMethod_ = {@Autowired})
+    private SimCardInternalUpdater simCardRandomUpdater;
     private SimCardRepository simCardRepository;
-
-    @Override
-    public List<SimCard> getAll() {
-        return simCardRepository.findAll();
-    }
-
-    @Override
-    public SimCard getRandom() {
-        List<Long> list = simCardRepository.getAllIds();
-        Long id = list.get(faker.number().numberBetween(0, list.size() - 1));
-        return simCardRepository.findById(id).orElse(null);
-    }
 
     @Override
     public SimCard add() {
@@ -46,14 +33,49 @@ public class SimCardService implements Executable<SimCard> {
     }
 
     @Override
+    public List<SimCard> getAll() {
+        return simCardRepository.findAll();
+    }
+
+    @Override
+    public SimCard getRandom() {
+        List<Long> list = simCardRepository.getAllIds();
+        if (list.isEmpty()) {
+            return add();
+        }
+        Long id = list.get(randomizer.getRandomId(list.size()));
+        SimCard simCard = simCardRepository.findById(id).orElse(null);
+        if (simCard == null) {
+            return add();
+        }
+        return simCard;
+    }
+
+    @Override
     public SimCard update() {
         SimCard simCard = getRandom();
-        if (simCard == null) {
-            simCard = add();
-        }
         simCard = simCardRandomUpdater.update(simCard);
         simCardRepository.save(simCard);
         return simCard;
+    }
+
+    public Optional<Client> getClient(SimCard simCard) {
+        if (simCard == null) {
+            return Optional.empty();
+        }
+        Client client = simCard.getClient();
+        if (client != null) {
+            return Optional.of(client);
+        }
+        return Optional.empty();
+    }
+
+    public SimCard getRandomByClientNull() {
+        List<SimCard> list = simCardRepository.findByClientNull();
+        if (list.isEmpty()) {
+            return add();
+        }
+        return list.get(randomizer.getRandomId(list.size()));
     }
 
 }

@@ -1,6 +1,7 @@
 package com.graduate.work.entity_and_event_generator.random.event;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface Executable<T> {
 

@@ -1,17 +1,16 @@
 package com.graduate.work.entity_and_event_generator.random.generator;
 
-import com.github.javafaker.Faker;
+import com.graduate.work.entity_and_event_generator.random.Randomizer;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class InitialStateGenerator {
+public abstract class InitialStateGenerator<T> {
 
     @Setter(onMethod_ = {@Autowired})
-    protected Faker faker;
+    protected Randomizer randomizer;
 
-    public abstract Object create();
+    public abstract T create();
 
 }

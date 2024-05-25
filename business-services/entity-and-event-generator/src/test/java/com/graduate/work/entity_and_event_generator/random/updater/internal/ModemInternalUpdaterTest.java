@@ -1,7 +1,8 @@
-package com.graduate.work.entity_and_event_generator.random.updater;
+package com.graduate.work.entity_and_event_generator.random.updater.internal;
 
 import com.graduate.work.entity_and_event_generator.random.generator.ModemInitialStateGenerator;
 import com.graduate.work.model.entity.Modem;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +17,17 @@ import static org.junit.jupiter.api.Assertions.*;
                 spring.datasource.driverClassName=org.h2.Driver
                 spring.datasource.driver-class-name=org.h2.Driver"""
 )
-class ModemDataUpdaterTest {
+@Setter(onMethod_ = {@Autowired})
+class ModemInternalUpdaterTest {
 
     ModemInitialStateGenerator modemRandomGenerator;
-    ModemDataUpdater modemRandomUpdater;
-
-    @Autowired
-    public void setModemRandomGenerator(ModemInitialStateGenerator modemRandomGenerator) {
-        this.modemRandomGenerator = modemRandomGenerator;
-    }
-
-    @Autowired
-    public void setModemRandomUpdater(ModemDataUpdater modemRandomUpdater) {
-        this.modemRandomUpdater = modemRandomUpdater;
-    }
+    ModemInternalUpdater modemRandomUpdater;
 
     @Test
     void updateStatus() {
         Modem modem = modemRandomGenerator.create();
         log.info(modem.toString());
-        modemRandomUpdater.getUpdateStatus().activate(modem);
+        modem.setStatus(Modem.Status.ACTIVE);
         log.info(modem.toString());
         assertNotNull(modem.getStatus());
     }

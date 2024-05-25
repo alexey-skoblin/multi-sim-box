@@ -31,7 +31,6 @@
             react-client<->automated-workstation
 
 [//]: # (        internal-api-client:)
-
 [//]: # (            react-client<->automated-workstation)
 
         automated-workstation:

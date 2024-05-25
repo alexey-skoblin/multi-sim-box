@@ -1,7 +1,8 @@
-package com.graduate.work.entity_and_event_generator.random.updater;
+package com.graduate.work.entity_and_event_generator.random.updater.internal;
 
 import com.graduate.work.entity_and_event_generator.random.generator.ClientInitialStateGenerator;
 import com.graduate.work.model.entity.Client;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
                 spring.datasource.driverClassName=org.h2.Driver
                 spring.datasource.driver-class-name=org.h2.Driver"""
 )
-class ClientDataUpdaterTest {
+@Setter(onMethod_ = {@Autowired})
+class ClientInternalUpdaterTest {
 
     ClientInitialStateGenerator clientRandomGenerator;
-    ClientDataUpdater clientRandomUpdater;
-
-    @Autowired
-    public void setClientRandomGenerator(ClientInitialStateGenerator clientRandomGenerator) {
-        this.clientRandomGenerator = clientRandomGenerator;
-    }
-
-    @Autowired
-    public void setClientRandomUpdater(ClientDataUpdater clientRandomUpdater) {
-        this.clientRandomUpdater = clientRandomUpdater;
-    }
+    ClientInternalUpdater clientRandomUpdater;
 
     @Test
     void updateName() {

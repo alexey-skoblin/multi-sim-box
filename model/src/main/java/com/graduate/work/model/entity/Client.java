@@ -3,101 +3,61 @@ package com.graduate.work.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Getter
 @Entity
 @Builder
 @ToString
 public class Client {
 
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Getter
     @Setter
     String name;
-
-    @Getter
     @Setter
     String lastName;
-
-    @Getter
     @Setter
     String login;
-
-    @Getter
     @Setter
     String hash;
-
-    @Getter
     @Setter
     String email;
-
-    @Getter
     @Setter
     String ip;
 
-    @OneToMany(mappedBy = "client")
+    @Setter
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "id")
     @ToString.Exclude
-    @Builder.Default
-    private List<SimCard> simCards = new ArrayList<>();
+    private Map<Long, SimCard> simCards;
 
-    public int sizeSimCards() {
-        return simCards.size();
-    }
-
-    public void addSimCard(SimCard simCard) {
-        simCards.add(simCard);
-        if (simCard.getClient() != this) {
-            simCard.setClient(this);
-        }
-    }
-
-    public SimCard getSimCard(int id) {
-        return simCards.get(id);
-    }
-
-    public boolean containsSimCard(SimCard simCard) {
-        return simCards.contains(simCard);
-    }
-
-    public void removeSimCard(SimCard simCard) {
-        simCards.remove(simCard);
-        simCard.setClient(null);
-    }
-
-    @OneToMany(mappedBy = "client")
+    @Setter
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "id")
     @ToString.Exclude
-    @Builder.Default
-    private List<Object> objects = new ArrayList<>();
+    private Map<Long, Facility> facilities;
 
-    public int sizeObjects() {
-        return objects.size();
-    }
-
-    public void addObject(Object object) {
-        objects.add(object);
-        if (object.getClient() != this) {
-            object.setClient(this);
+    public void clearSimCards() {
+        if (simCards == null) {
+            return;
         }
+        for (SimCard simCard : simCards.values()) {
+            simCard.setClient(null);
+        }
+        simCards.clear();
     }
 
-    public Object getObject(int id) {
-        return objects.get(id);
+    public void clearFacilities() {
+        if (facilities == null) {
+            return;
+        }
+        for (Facility facility : facilities.values()) {
+            facility.setClient(null);
+        }
+        facilities.clear();
     }
-
-    public boolean containsObject(Object object) {
-        return objects.contains(object);
-    }
-
-    public void removeObject(Object object) {
-        objects.remove(object);
-        object.setClient(null);
-    }
-
 }

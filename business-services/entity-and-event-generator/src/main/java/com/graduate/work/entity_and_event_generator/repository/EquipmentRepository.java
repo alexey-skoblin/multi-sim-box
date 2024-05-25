@@ -12,4 +12,7 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Long> {
 
     @Query("select p.id from #{#entityName} p")
     List<Long> getAllIds();
+
+    List<Equipment> findByFacilityNull();
+
 }

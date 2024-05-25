@@ -1,6 +1,5 @@
 package com.graduate.work.entity_and_event_generator;
 
-import com.github.javafaker.Faker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -10,8 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.Locale;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -30,10 +27,5 @@ public class EntityAndEventGeneratorApplication {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    Faker faker() {
-        Locale locale = new Locale.Builder().setLanguage("ru").build();
-        return new Faker(locale);
-    }
 }
 
