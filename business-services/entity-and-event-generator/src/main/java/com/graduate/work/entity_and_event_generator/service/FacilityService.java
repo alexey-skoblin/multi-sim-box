@@ -1,14 +1,17 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.event.Executable;
-import com.graduate.work.entity_and_event_generator.random.generator.FacilityInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.internal.FacilityInternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.service.random.generator.FacilityInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.service.random.updater.external.FacilityExternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.updater.internal.FacilityInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.FacilityRepository;
+import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Facility;
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +21,11 @@ import java.util.List;
 @Setter(onMethod_ = {@Autowired})
 public class FacilityService implements Executable<Facility> {
 
-    Randomizer randomizer;
-
+    private Randomizer randomizer;
     private FacilityInitialStateGenerator objectRandomGenerator;
-    private FacilityInternalUpdater objectRandomUpdater;
+    private FacilityInternalUpdater facilityInternalUpdater;
+    @Setter(onMethod_ = {@Autowired, @Lazy})
+    private FacilityExternalUpdater facilityExternalUpdater;
     private FacilityRepository facilityRepository;
 
     @Override
@@ -53,7 +57,8 @@ public class FacilityService implements Executable<Facility> {
     @Override
     public Facility update() {
         Facility facility = getRandom();
-        facility = objectRandomUpdater.update(facility);
+        facility = facilityInternalUpdater.update(facility);
+        facility = facilityExternalUpdater.update(facility);
         facilityRepository.save(facility);
         return facility;
     }

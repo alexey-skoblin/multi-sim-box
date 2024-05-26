@@ -37,3 +37,4 @@ gen
 **/target/
 **/mvnw
 **/mvnw.cmd
+**/data/postgres

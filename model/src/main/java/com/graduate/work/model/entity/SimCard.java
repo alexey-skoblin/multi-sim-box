@@ -65,6 +65,9 @@ public class SimCard {
     }
 
     public void setClient(Client client) {
+        if (this.client == client) {
+            return;
+        }
         if (this.client != null) {
             this.client.getSimCards().remove(this.id);
         }
@@ -81,6 +84,9 @@ public class SimCard {
     }
 
     public void setModem(Modem modem) {
+        if (this.modem == modem) {
+            return;
+        }
         if (this.modem != null) {
             this.modem.getSimCards().remove(this.id);
         }

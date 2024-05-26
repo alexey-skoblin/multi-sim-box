@@ -1,14 +1,16 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.event.Executable;
-import com.graduate.work.entity_and_event_generator.random.generator.ClientInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.internal.ClientInternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.service.random.generator.ClientInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.service.random.updater.external.ClientExternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.updater.internal.ClientInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.ClientRepository;
+import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +20,11 @@ import java.util.List;
 @Setter(onMethod_ = {@Autowired})
 public class ClientService implements Executable<Client> {
 
-    Randomizer randomizer;
-
+    private Randomizer randomizer;
     private ClientInitialStateGenerator clientRandomGenerator;
-    private ClientInternalUpdater clientRandomUpdater;
+    private ClientInternalUpdater clientInternalUpdater;
+    @Setter(onMethod_ = {@Autowired, @Lazy})
+    private ClientExternalUpdater clientExternalUpdater;
     private ClientRepository clientRepository;
 
     @Override
@@ -53,7 +56,8 @@ public class ClientService implements Executable<Client> {
     @Override
     public Client update() {
         Client client = getRandom();
-        clientRandomUpdater.update(client);
+        client = clientInternalUpdater.update(client);
+        client = clientExternalUpdater.update(client);
         clientRepository.save(client);
         return client;
     }

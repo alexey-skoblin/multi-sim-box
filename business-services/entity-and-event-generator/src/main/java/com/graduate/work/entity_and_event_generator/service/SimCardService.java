@@ -1,14 +1,18 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.event.Executable;
-import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.internal.SimCardInternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.service.random.generator.SimCardInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.service.random.updater.external.SimCardExternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.updater.internal.SimCardInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.SimCardRepository;
+import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.SimCard;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,13 +20,14 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-@AllArgsConstructor
+@Setter(onMethod_ = {@Autowired})
 public class SimCardService implements Executable<SimCard> {
 
-    Randomizer randomizer;
-
+    private Randomizer randomizer;
     private SimCardInitialStateGenerator simCardRandomGenerator;
-    private SimCardInternalUpdater simCardRandomUpdater;
+    private SimCardInternalUpdater simCardInternalUpdater;
+    @Setter(onMethod_ = {@Autowired, @Lazy})
+    private SimCardExternalUpdater simCardExternalUpdater;
     private SimCardRepository simCardRepository;
 
     @Override
@@ -54,7 +59,8 @@ public class SimCardService implements Executable<SimCard> {
     @Override
     public SimCard update() {
         SimCard simCard = getRandom();
-        simCard = simCardRandomUpdater.update(simCard);
+        simCard = simCardInternalUpdater.update(simCard);
+        simCard = simCardExternalUpdater.update(simCard);
         simCardRepository.save(simCard);
         return simCard;
     }

@@ -53,6 +53,9 @@ public class Facility {
     }
 
     public void setClient(Client client) {
+        if (this.client == client) {
+            return;
+        }
         if (this.client != null) {
             this.client.getFacilities().remove(this.id);
         }
@@ -68,6 +71,9 @@ public class Facility {
     }
 
     public void setEquipment(Equipment equipment) {
+        if (this.equipment == equipment) {
+            return;
+        }
         if (this.equipment != null) {
             Equipment oldEquipment = this.equipment;
             this.equipment = null;
@@ -76,8 +82,6 @@ public class Facility {
         this.equipment = equipment;
         if (equipment != null) {
             equipment.setFacility(this);
-        } else {
-            this.setStatus(Status.INACTIVE);
         }
     }
 

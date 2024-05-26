@@ -1,10 +1,11 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.event.Executable;
-import com.graduate.work.entity_and_event_generator.random.generator.ModemInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.internal.ModemInternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.service.random.generator.ModemInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.service.random.updater.external.ModemExternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.updater.internal.ModemInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.ModemRepository;
+import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Modem;
 import com.graduate.work.model.entity.SimCard;
@@ -12,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,14 +22,14 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-@AllArgsConstructor
 @Setter(onMethod_ = {@Autowired})
 public class ModemService implements Executable<Modem> {
 
-    Randomizer randomizer;
-
+    private Randomizer randomizer;
     private ModemInitialStateGenerator modemRandomGenerator;
-    private ModemInternalUpdater modemRandomUpdater;
+    private ModemInternalUpdater modemInternalUpdater;
+    @Setter(onMethod_ = {@Autowired, @Lazy})
+    private ModemExternalUpdater modemExternalUpdater;
     private ModemRepository modemRepository;
 
     @Override
@@ -59,7 +61,8 @@ public class ModemService implements Executable<Modem> {
     @Override
     public Modem update() {
         Modem modem = getRandom();
-        modem = modemRandomUpdater.update(modem);
+        modem = modemInternalUpdater.update(modem);
+        modem = modemExternalUpdater.update(modem);
         modemRepository.save(modem);
         return modem;
     }

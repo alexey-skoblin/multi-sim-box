@@ -1,8 +1,8 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.generator.ClientInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.internal.ClientInternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.service.random.generator.ClientInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.service.random.updater.internal.ClientInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.ClientRepository;
 import com.graduate.work.model.entity.Client;
 import lombok.Setter;

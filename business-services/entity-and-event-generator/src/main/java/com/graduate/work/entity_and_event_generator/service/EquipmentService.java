@@ -1,15 +1,18 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.event.Executable;
-import com.graduate.work.entity_and_event_generator.random.generator.EquipmentInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.random.updater.internal.EquipmentInternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.service.random.generator.EquipmentInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.service.random.updater.external.EquipmentExternalUpdater;
+import com.graduate.work.entity_and_event_generator.service.random.updater.internal.EquipmentInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.EquipmentRepository;
+import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Equipment;
 import com.graduate.work.model.entity.Modem;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +21,14 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-@AllArgsConstructor
+@Setter(onMethod_ = {@Autowired})
 public class EquipmentService implements Executable<Equipment> {
 
-    Randomizer randomizer;
-
+    private Randomizer randomizer;
     private EquipmentInitialStateGenerator equipmentRandomGenerator;
-    private EquipmentInternalUpdater equipmentRandomUpdater;
+    private EquipmentInternalUpdater equipmentInternalUpdater;
+    @Setter(onMethod_ = {@Autowired, @Lazy})
+    private EquipmentExternalUpdater equipmentExternalUpdater;
     private EquipmentRepository equipmentRepository;
 
     @Lazy private ModemService modemService;
@@ -58,10 +62,12 @@ public class EquipmentService implements Executable<Equipment> {
     @Override
     public Equipment update() {
         Equipment equipment = getRandom();
-        equipment = equipmentRandomUpdater.update(equipment);
+        equipment = equipmentInternalUpdater.update(equipment);
+        equipment = equipmentExternalUpdater.update(equipment);
         equipmentRepository.save(equipment);
         return equipment;
     }
+
 
     public Optional<Client> getClient(Equipment equipment) {
         if (equipment == null) {

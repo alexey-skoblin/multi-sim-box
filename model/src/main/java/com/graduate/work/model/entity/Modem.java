@@ -50,6 +50,9 @@ public class Modem {
     }
 
     public void setEquipment(Equipment equipment) {
+        if (this.equipment == equipment) {
+            return;
+        }
         if (this.equipment != null) {
             this.equipment.getModems().remove(this.id);
         }

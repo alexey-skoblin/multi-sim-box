@@ -15,7 +15,7 @@ import java.util.Map;
 public class Equipment {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Setter
@@ -38,8 +38,13 @@ public class Equipment {
     private Map<Long, Modem> modems;
 
     public void setFacility(Facility facility) {
+        if (this.facility == facility) {
+            return;
+        }
         if (this.facility != null) {
-            this.facility.setEquipment(null);
+            Facility oldFacility = this.facility;
+            this.facility = null;
+            oldFacility.setEquipment(null);
         }
         this.facility = facility;
         if (facility != null) {
