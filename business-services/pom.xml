@@ -11,7 +11,7 @@
 
     <modules>
         <module>automated-workstation</module>
-        <module>internal-api-client</module>
+        <module>zabbix</module>
         <module>internal-company-database</module>
         <module>mobile-operator-personal-account</module>
         <module>entity-and-event-generator</module>

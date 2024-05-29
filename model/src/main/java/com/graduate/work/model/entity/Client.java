@@ -3,6 +3,8 @@ package com.graduate.work.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -45,7 +47,8 @@ public class Client {
         if (simCards == null) {
             return;
         }
-        for (SimCard simCard : simCards.values()) {
+        List<SimCard> simCardsList = new java.util.ArrayList<>(simCards.values());
+        for (SimCard simCard : simCardsList) {
             simCard.setClient(null);
         }
         simCards.clear();
@@ -55,7 +58,8 @@ public class Client {
         if (facilities == null) {
             return;
         }
-        for (Facility facility : facilities.values()) {
+        List<Facility> facilitiesList = new java.util.ArrayList<>(facilities.values());
+        for (Facility facility : facilitiesList) {
             facility.setClient(null);
         }
         facilities.clear();

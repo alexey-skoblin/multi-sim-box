@@ -4,6 +4,8 @@ package com.graduate.work.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -58,7 +60,8 @@ public class Equipment {
         if (modems == null) {
             return;
         }
-        for (Modem modem : modems.values()) {
+        List<Modem> modemsList = modems.values().stream().toList();
+        for (Modem modem : modemsList) {
             modem.setEquipment(null);
         }
         modems.clear();

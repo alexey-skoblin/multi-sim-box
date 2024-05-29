@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -71,7 +72,8 @@ public class Modem {
         if (simCards == null) {
             return;
         }
-        for (SimCard simCard : simCards.values()) {
+        List<SimCard> simCardsList = simCards.values().stream().toList();
+        for (SimCard simCard : simCardsList) {
             simCard.setModem(null);
         }
         simCards.clear();

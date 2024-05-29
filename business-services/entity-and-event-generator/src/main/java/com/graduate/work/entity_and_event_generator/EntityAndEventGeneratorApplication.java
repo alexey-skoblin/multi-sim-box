@@ -27,5 +27,6 @@ public class EntityAndEventGeneratorApplication {
         return new BCryptPasswordEncoder();
     }
 
+
 }
 

@@ -1,6 +1,5 @@
 package com.graduate.work.entity_and_event_generator.repository;
 
-import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.SimCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,5 +16,4 @@ public interface SimCardRepository extends JpaRepository<SimCard, Long> {
     List<SimCard> findByClientNull();
 
     List<SimCard> findAllNotModemByClient_Id(Long id);
-
 }

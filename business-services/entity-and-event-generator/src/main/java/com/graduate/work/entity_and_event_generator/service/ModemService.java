@@ -1,15 +1,14 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.service.random.generator.ModemInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.service.random.updater.external.ModemExternalUpdater;
-import com.graduate.work.entity_and_event_generator.service.random.updater.internal.ModemInternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.generator.ModemInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.random.updater.external.ModemExternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.updater.internal.ModemInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.ModemRepository;
-import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Modem;
 import com.graduate.work.model.entity.SimCard;
-import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,6 @@ public class ModemService implements Executable<Modem> {
         return modem;
     }
 
-    @Override
     public List<Modem> getAll() {
         return modemRepository.findAll();
     }

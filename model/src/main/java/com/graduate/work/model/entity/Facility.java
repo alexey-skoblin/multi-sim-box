@@ -35,7 +35,6 @@ public class Facility {
     private Client client;
 
     @OneToOne
-    @ToString.Exclude
     private Equipment equipment;
 
     public void setStatus(Status status) {

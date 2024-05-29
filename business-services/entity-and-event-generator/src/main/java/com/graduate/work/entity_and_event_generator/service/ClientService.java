@@ -1,11 +1,11 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.service.random.generator.ClientInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.service.random.updater.external.ClientExternalUpdater;
-import com.graduate.work.entity_and_event_generator.service.random.updater.internal.ClientInternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.generator.ClientInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.random.updater.external.ClientExternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.updater.internal.ClientInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.ClientRepository;
-import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,6 @@ public class ClientService implements Executable<Client> {
         return client;
     }
 
-    @Override
     public List<Client> getAll() {
         return clientRepository.findAll();
     }

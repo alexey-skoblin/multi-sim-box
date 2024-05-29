@@ -16,7 +16,6 @@ public class TestService {
         this.webClient = builder.build();
     }
 
-    @Scheduled(fixedRate = 1000)
     public void run() {
         get("mobile-operator-personal-account");
     }
@@ -27,5 +26,14 @@ public class TestService {
                 .uri("http://" + url + "/test?text=" + request)
                 .retrieve();
     }
+
+    public void get() {
+        String request = MobileOperatorPersonalAccountApplication.class.getSimpleName();
+        webClient.get()
+                .uri("http://localhost:8761/eureka/entity-and-event-generator/allClients")
+                .retrieve();
+
+    }
+
 
 }

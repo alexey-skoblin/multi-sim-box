@@ -1,18 +1,19 @@
 package com.graduate.work.entity_and_event_generator.service;
 
-import com.graduate.work.entity_and_event_generator.service.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.service.random.generator.SimCardInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.service.random.updater.external.SimCardExternalUpdater;
-import com.graduate.work.entity_and_event_generator.service.random.updater.internal.SimCardInternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.Randomizer;
+import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
+import com.graduate.work.entity_and_event_generator.random.updater.external.SimCardExternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.updater.internal.SimCardInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.SimCardRepository;
-import com.graduate.work.entity_and_event_generator.service.random.executor.Executable;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.SimCard;
-import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,9 +38,13 @@ public class SimCardService implements Executable<SimCard> {
         return simCard;
     }
 
-    @Override
     public List<SimCard> getAll() {
         return simCardRepository.findAll();
+    }
+
+    public List<SimCard> getAll(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return simCardRepository.findAll(pageable).toList();
     }
 
     @Override

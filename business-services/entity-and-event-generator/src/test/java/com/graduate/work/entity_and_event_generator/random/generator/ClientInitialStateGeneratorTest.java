@@ -1,6 +1,5 @@
 package com.graduate.work.entity_and_event_generator.random.generator;
 
-import com.graduate.work.entity_and_event_generator.service.random.generator.ClientInitialStateGenerator;
 import com.graduate.work.model.entity.Client;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

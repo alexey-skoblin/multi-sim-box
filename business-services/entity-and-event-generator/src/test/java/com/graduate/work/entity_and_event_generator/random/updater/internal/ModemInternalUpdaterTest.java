@@ -1,7 +1,6 @@
 package com.graduate.work.entity_and_event_generator.random.updater.internal;
 
-import com.graduate.work.entity_and_event_generator.service.random.generator.ModemInitialStateGenerator;
-import com.graduate.work.entity_and_event_generator.service.random.updater.internal.ModemInternalUpdater;
+import com.graduate.work.entity_and_event_generator.random.generator.ModemInitialStateGenerator;
 import com.graduate.work.model.entity.Modem;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
