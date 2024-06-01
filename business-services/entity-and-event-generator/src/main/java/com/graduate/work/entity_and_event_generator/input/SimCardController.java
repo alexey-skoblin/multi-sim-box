@@ -8,9 +8,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,13 +21,18 @@ public class SimCardController {
     private final SimCardMapper simCardMapper = SimCardMapper.INSTANCE;
     SimCardService simCardService;
 
-    @RequestMapping(path = "/sim-cards", params = {"page", "size"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/sim-cards", params = {"page", "size"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SimCardDto> getAll(int page, int size) {
         log.atInfo().log("Page: " + page + " Size: " + size);
         List<SimCard> simCards = simCardService.getAll(page, size);
         return simCards.stream().map(simCardMapper::simCardToSimCardDto).toList();
     }
 
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/activate", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void activate(@RequestBody List<String> iccids) {
+        log.atInfo().log("Activate: " + iccids);
+    }
 /*    @RequestMapping(path = "/sim-cards", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SimCardDto> getAll() {
         log.atInfo().log("Get all sim-cards");

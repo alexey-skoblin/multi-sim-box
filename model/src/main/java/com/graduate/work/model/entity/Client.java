@@ -1,9 +1,9 @@
 package com.graduate.work.model.entity;
 
+import com.graduate.work.model.types.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,9 +15,6 @@ import java.util.Map;
 @ToString
 public class Client {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Setter
     String name;
     @Setter
@@ -29,8 +26,12 @@ public class Client {
     @Setter
     String email;
     @Setter
+    Role role;
+    @Setter
     String ip;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Setter
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKey(name = "id")

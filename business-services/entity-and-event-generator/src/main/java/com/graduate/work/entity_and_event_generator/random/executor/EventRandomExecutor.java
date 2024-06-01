@@ -3,27 +3,24 @@ package com.graduate.work.entity_and_event_generator.random.executor;
 import com.graduate.work.entity_and_event_generator.service.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
 @AllArgsConstructor
 public class EventRandomExecutor {
 
+    private static final Integer COUNT_CREATING_ENTITIES = 1;
+    private static final Integer COUNT_UPDATING_ENTITIES = 15;
     ClientService clientService;
     EquipmentService equipmentService;
     ModemService modemService;
     FacilityService facilityService;
     SimCardService simCardService;
 
-    private static final Integer COUNT_CREATING_ENTITIES = 1;
-    private static final Integer COUNT_UPDATING_ENTITIES = 15;
-
-    @Scheduled(fixedDelay = 1)
+    //    @Scheduled(fixedDelay = 1)
     public void execute() {
 //        log.info("Start Event Random Executor");
         List<Executable<?>> list = List.of(

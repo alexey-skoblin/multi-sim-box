@@ -4,6 +4,7 @@ import com.github.javafaker.Name;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Facility;
 import com.graduate.work.model.entity.SimCard;
+import com.graduate.work.model.types.Role;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class ClientInitialStateGenerator extends InitialStateGenerator<Client> {
         String lastName = name.lastName();
         String login = firstName.toLowerCase() + "." + lastName.toLowerCase();
         String password = randomizer.internet().password(10, 20, true, true);
+        Role role = Role.values()[randomizer.getRandomId(Role.values().length)];
         String hash = passwordEncoder.encode(login + password);
         String email = login + "@ya.ru";
         String ip = randomizer.internet().ipV4Address();
@@ -34,6 +36,7 @@ public class ClientInitialStateGenerator extends InitialStateGenerator<Client> {
                 .login(login)
                 .hash(hash)
                 .email(email)
+                .role(role)
                 .ip(ip)
                 .facilities(objectMap)
                 .simCards(simCardMap)
