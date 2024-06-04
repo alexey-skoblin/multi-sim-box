@@ -5,7 +5,7 @@ import com.graduate.work.entity_and_event_generator.random.executor.Executable;
 import com.graduate.work.entity_and_event_generator.random.generator.EquipmentInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.EquipmentExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.EquipmentInternalUpdater;
-import com.graduate.work.entity_and_event_generator.repository.EquipmentRepository;
+import com.graduate.work.entity_and_event_generator.repository.jpa.EquipmentRepository;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Equipment;
 import com.graduate.work.model.entity.Modem;

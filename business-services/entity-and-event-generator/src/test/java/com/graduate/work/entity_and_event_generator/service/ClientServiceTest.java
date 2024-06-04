@@ -3,7 +3,7 @@ package com.graduate.work.entity_and_event_generator.service;
 import com.graduate.work.entity_and_event_generator.random.Randomizer;
 import com.graduate.work.entity_and_event_generator.random.generator.ClientInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.ClientInternalUpdater;
-import com.graduate.work.entity_and_event_generator.repository.ClientRepository;
+import com.graduate.work.entity_and_event_generator.repository.jpa.ClientRepository;
 import com.graduate.work.model.entity.Client;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @Slf4j

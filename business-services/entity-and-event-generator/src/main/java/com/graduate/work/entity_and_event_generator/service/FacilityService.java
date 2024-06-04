@@ -5,7 +5,7 @@ import com.graduate.work.entity_and_event_generator.random.executor.Executable;
 import com.graduate.work.entity_and_event_generator.random.generator.FacilityInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.FacilityExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.FacilityInternalUpdater;
-import com.graduate.work.entity_and_event_generator.repository.FacilityRepository;
+import com.graduate.work.entity_and_event_generator.repository.jpa.FacilityRepository;
 import com.graduate.work.model.entity.Facility;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

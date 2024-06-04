@@ -5,7 +5,7 @@ import com.graduate.work.entity_and_event_generator.random.executor.Executable;
 import com.graduate.work.entity_and_event_generator.random.generator.ModemInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.ModemExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.ModemInternalUpdater;
-import com.graduate.work.entity_and_event_generator.repository.ModemRepository;
+import com.graduate.work.entity_and_event_generator.repository.jpa.ModemRepository;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Modem;
 import com.graduate.work.model.entity.SimCard;

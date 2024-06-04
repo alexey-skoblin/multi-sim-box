@@ -2,6 +2,7 @@ package com.graduate.work.entity_and_event_generator.input;
 
 import com.graduate.work.entity_and_event_generator.service.SimCardService;
 import com.graduate.work.model.dto.SimCardDto;
+import com.graduate.work.model.dto.SimCardPageDto;
 import com.graduate.work.model.entity.SimCard;
 import com.graduate.work.model.mapper.SimCardMapper;
 import lombok.Setter;
@@ -21,19 +22,30 @@ public class SimCardController {
     private final SimCardMapper simCardMapper = SimCardMapper.INSTANCE;
     SimCardService simCardService;
 
-    @GetMapping(path = "/sim-cards", params = {"page", "size"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SimCardDto> getAll(int page, int size) {
-        log.atInfo().log("Page: " + page + " Size: " + size);
-        List<SimCard> simCards = simCardService.getAll(page, size);
+    @GetMapping(path = "/sim-cards")
+    public Iterable<SimCardDto> getAll(
+            int page,
+            int size,
+            String sortingField,
+            String sortingOrder,
+            String searchMobileOperator,
+            String searchIccid,
+            String searchDefNumber,
+            String searchAddress,
+            String searchNumberFacility
+    ) {
+        SimCardPageDto simCardPageDto = new SimCardPageDto(page, size, sortingField, sortingOrder, searchMobileOperator, searchIccid, searchDefNumber, searchAddress, searchNumberFacility);
+        List<SimCard> simCards = simCardService.getAll(simCardPageDto);
         return simCards.stream().map(simCardMapper::simCardToSimCardDto).toList();
     }
 
-    @CrossOrigin(origins = "*")
+
     @PostMapping(path = "/activate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void activate(@RequestBody List<String> iccids) {
-        log.atInfo().log("Activate: " + iccids);
+    public void activate(@RequestBody List<String> ListIccid) {
+        simCardService.activateListSimCards(ListIccid);
     }
-/*    @RequestMapping(path = "/sim-cards", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    /*    @RequestMapping(path = "/sim-cards", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SimCardDto> getAll() {
         log.atInfo().log("Get all sim-cards");
         List<SimCard> simCards = simCardService.getAll();

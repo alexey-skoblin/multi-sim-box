@@ -12,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "com.graduate.work.entity_and_event_generator.repository.jpa")
 @EnableFeignClients
 @EntityScan(basePackages = "com.graduate.work.model.entity")
 @EnableScheduling
@@ -26,7 +26,6 @@ public class EntityAndEventGeneratorApplication {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 
 }
 

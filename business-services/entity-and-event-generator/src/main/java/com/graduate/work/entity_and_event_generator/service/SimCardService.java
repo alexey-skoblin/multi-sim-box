@@ -5,15 +5,18 @@ import com.graduate.work.entity_and_event_generator.random.executor.Executable;
 import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.SimCardExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.SimCardInternalUpdater;
-import com.graduate.work.entity_and_event_generator.repository.SimCardRepository;
+import com.graduate.work.entity_and_event_generator.repository.jpa.SimCardRepository;
+import com.graduate.work.model.dto.SimCardPageDto;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.SimCard;
+import jakarta.transaction.Transactional;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,12 +41,9 @@ public class SimCardService implements Executable<SimCard> {
         return simCard;
     }
 
-    public List<SimCard> getAll() {
-        return simCardRepository.findAll();
-    }
-
-    public List<SimCard> getAll(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public List<SimCard> getAll(SimCardPageDto simCardPageDto) {
+        Sort sort = Sort.by(Sort.Direction.fromString(simCardPageDto.sortingOrder()), simCardPageDto.sortingField());
+        Pageable pageable = PageRequest.of(simCardPageDto.page(), simCardPageDto.size(), sort);
         return simCardRepository.findAll(pageable).toList();
     }
 
@@ -87,6 +87,17 @@ public class SimCardService implements Executable<SimCard> {
             return add();
         }
         return list.get(randomizer.getRandomId(list.size()));
+    }
+
+
+    @Transactional
+    public void activateListSimCards(List<String> listIccid) {
+        for (String iccid : listIccid) {
+            int result = simCardRepository.updateStatusByIccid(SimCard.Status.ACTIVE, iccid);
+            if (result == 0) {
+                throw new IllegalArgumentException("Iccid " + iccid + " not found");
+            }
+        }
     }
 
 }

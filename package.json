@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@custom-react-hooks/all": "^1.4.19"
+  }
+}

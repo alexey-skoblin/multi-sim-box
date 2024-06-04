@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class SimCard {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String iccid;
@@ -52,7 +52,7 @@ public class SimCard {
     @ManyToOne
     private Modem modem;
 
-    public void setStatus(Status status){
+    public void setStatus(Status status) {
         if (this.status == status) {
             return;
         }
@@ -102,6 +102,6 @@ public class SimCard {
     @Getter
     public enum Status {
         ACTIVE,
-        INACTIVE;
+        INACTIVE
     }
 }
