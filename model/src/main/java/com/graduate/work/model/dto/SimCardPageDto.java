@@ -8,5 +8,5 @@ public record SimCardPageDto(int page,
                              String searchIccid,
                              String searchDefNumber,
                              String searchAddress,
-                             String searchNumberFacility) {
+                             String searchSerialNumber) {
 }

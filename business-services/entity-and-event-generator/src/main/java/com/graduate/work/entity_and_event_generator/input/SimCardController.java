@@ -32,18 +32,19 @@ public class SimCardController {
             String searchIccid,
             String searchDefNumber,
             String searchAddress,
-            String searchNumberFacility
+            String searchSerialNumber
     ) {
-        SimCardPageDto simCardPageDto = new SimCardPageDto(page, size, sortingField, sortingOrder, searchMobileOperator, searchIccid, searchDefNumber, searchAddress, searchNumberFacility);
+        SimCardPageDto simCardPageDto = new SimCardPageDto(page, size, sortingField, sortingOrder, searchMobileOperator, searchIccid, searchDefNumber, searchAddress, searchSerialNumber);
         List<SimCard> simCards = simCardService.getAll(simCardPageDto);
         return simCards.stream().map(simCardMapper::simCardToSimCardDto).toList();
     }
 
 
-    @PostMapping(path = "/activate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void activate(@RequestBody List<String> ListIccid) {
-        simCardService.activateListSimCards(ListIccid);
+    @PostMapping(path = "/updateStatus", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void updateStatus(@RequestParam SimCard.Status status, @RequestBody List<String> ListIccid) {
+        simCardService.updateStatusByListSimCards(ListIccid, status);
     }
+
 
     /*    @RequestMapping(path = "/sim-cards", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SimCardDto> getAll() {

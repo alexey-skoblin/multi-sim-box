@@ -17,11 +17,11 @@ public abstract class Updater<T> {
 
     public T update(T t) {
         List<RandomAction<T>> randomActions = getRandomActions();
-        if ( randomActions == null ||randomActions.isEmpty()) {
+        if (randomActions == null || randomActions.isEmpty()) {
             return t;
         }
         RandomAction<T> randomAction = randomActions.get(randomizer.getRandomId(randomActions.size()));
-//        T object = randomAction.activate(t);
+//        T object = randomAction.updateStatus(t);
 //        if (object == null) {
 //            throw new RuntimeException("Object is null");
 //        }
