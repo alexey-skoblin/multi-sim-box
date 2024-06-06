@@ -6,6 +6,7 @@ import com.graduate.work.model.entity.Facility;
 import com.graduate.work.model.entity.SimCard;
 import com.graduate.work.model.types.Role;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.Map;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class ClientInitialStateGenerator extends InitialStateGenerator<Client> {
     private PasswordEncoder passwordEncoder;
 

@@ -25,5 +25,32 @@ public enum Role {
     /**
      * Represents an administrator role. Has unlimited rights, access to the settings panel, sending notifications.
      */
-    ADMIN
+    ADMIN;
+
+    public static Role getRole(String role) {
+        if (role == null) {
+            return null;
+        }
+        if (role.isEmpty()) {
+            return null;
+        }
+        role = role.toUpperCase();
+        if (Role.GUEST.name().contains(role)) {
+            return GUEST;
+        }
+        if (Role.USER.name().contains(role)) {
+            return USER;
+        }
+        if (Role.OPERATOR.name().contains(role)) {
+            return OPERATOR;
+        }
+        if (Role.SENIOR_OPERATOR.name().contains(role)) {
+            return SENIOR_OPERATOR;
+        }
+        if (Role.ADMIN.name().contains(role)) {
+            return ADMIN;
+        }
+        return null;
+    }
+    
 }

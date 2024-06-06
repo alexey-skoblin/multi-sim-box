@@ -10,7 +10,8 @@ import java.io.Serializable;
 /**
  * DTO for {@link SimCard}
  */
-public record SimCardDto(String iccid, SimCard.Status status, String defNumber, String mobileOperator, String tariff,
+public record SimCardDto(String iccid, SimCard.Status status, String defNumber, String mobileOperator,
+                         String tariff,
                          long lastActionDate, Point2D.Double lastLocation, Double trafficForYesterday,
                          String clientName, String clientLastName, String clientEmail, String clientIp,
                          Modem.Status modemStatus, String modemImei, String modemEquipmentHostname,

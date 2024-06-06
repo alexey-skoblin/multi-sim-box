@@ -6,11 +6,17 @@ import com.graduate.work.entity_and_event_generator.random.generator.ClientIniti
 import com.graduate.work.entity_and_event_generator.random.updater.external.ClientExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.ClientInternalUpdater;
 import com.graduate.work.entity_and_event_generator.repository.jpa.ClientRepository;
+import com.graduate.work.entity_and_event_generator.repository.specification.ClientSpecification;
+import com.graduate.work.model.dto.ClientPageDto;
 import com.graduate.work.model.entity.Client;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,8 +40,12 @@ public class ClientService implements Executable<Client> {
         return client;
     }
 
-    public List<Client> getAll() {
-        return clientRepository.findAll();
+    public List<Client> getAll(ClientPageDto clientPageDto) {
+        Sort sort = Sort.by(Sort.Direction.fromString(clientPageDto.sortingOrder()), clientPageDto.sortingField());
+        Pageable pageable = PageRequest.of(clientPageDto.page(), clientPageDto.size(), sort);
+//        Specification<SimCard> specification = SimCardSpecification.bySearchCriteria();
+        Specification<Client> specification = ClientSpecification.bySearchCriteria(clientPageDto.searchName(), clientPageDto.searchLastName(), clientPageDto.searchLogin(), clientPageDto.searchEmail(), clientPageDto.searchRole());
+        return clientRepository.findAll(specification, pageable).toList();
     }
 
     @Override

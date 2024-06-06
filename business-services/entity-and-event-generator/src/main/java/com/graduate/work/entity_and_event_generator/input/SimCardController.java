@@ -15,6 +15,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping(path = "/sim-cards", produces = MediaType.APPLICATION_JSON_VALUE)
 @Setter(onMethod_ = {@Autowired})
 @Slf4j
 public class SimCardController {
@@ -22,7 +23,7 @@ public class SimCardController {
     private final SimCardMapper simCardMapper = SimCardMapper.INSTANCE;
     SimCardService simCardService;
 
-    @GetMapping(path = "/sim-cards")
+    @GetMapping
     public Iterable<SimCardDto> getAll(
             int page,
             int size,
@@ -40,7 +41,7 @@ public class SimCardController {
     }
 
 
-    @PostMapping(path = "/updateStatus", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/update-status")
     public void updateStatus(@RequestParam SimCard.Status status, @RequestBody List<String> ListIccid) {
         simCardService.updateStatusByListSimCards(ListIccid, status);
     }

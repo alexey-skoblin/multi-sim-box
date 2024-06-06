@@ -15,7 +15,7 @@ import java.util.List;
 public class SimCardInternalUpdater extends InternalUpdater<SimCard> {
 
     RandomAction<SimCard> updateDefNumber = (simCard) -> {
-        simCard.setDefNumber(randomizer.phoneNumber().phoneNumber());
+        simCard.setDefNumber(randomizer.phoneNumber().phoneNumber().replaceAll("[^0-9]", ""));
         return simCard;
     };
     RandomAction<SimCard> updateMobileOperator = (simCard) -> {

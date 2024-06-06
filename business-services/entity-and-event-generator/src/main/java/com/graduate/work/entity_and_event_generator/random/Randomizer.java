@@ -12,7 +12,7 @@ public class Randomizer extends Faker {
     }
 
     public int getRandomId(int size) {
-        return this.number().numberBetween(0, size - 1);
+        return this.number().numberBetween(0, size);
     }
 
     public boolean getRandomBoolean() {
