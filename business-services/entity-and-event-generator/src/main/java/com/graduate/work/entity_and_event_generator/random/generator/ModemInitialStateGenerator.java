@@ -2,6 +2,7 @@ package com.graduate.work.entity_and_event_generator.random.generator;
 
 import com.graduate.work.model.entity.Modem;
 import com.graduate.work.model.entity.SimCard;
+import com.graduate.work.model.types.ModemStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,11 +13,11 @@ public class ModemInitialStateGenerator extends InitialStateGenerator<Modem> {
 
     @Override
     public Modem create() {
-        Modem.Status status = Modem.Status.INACTIVE;
+        ModemStatus modemStatus = ModemStatus.INACTIVE;
         String imei = randomizer.number().numberBetween(100000000000000L, 9999999999999999L) + "";
         Map<Long, SimCard> simCardMap = new HashMap<>();
         return Modem.builder()
-                .status(status)
+                .modemStatus(modemStatus)
                 .imei(imei)
                 .simCards(simCardMap)
                 .build();

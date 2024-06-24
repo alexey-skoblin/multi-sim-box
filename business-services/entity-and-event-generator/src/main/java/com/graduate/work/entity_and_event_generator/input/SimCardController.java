@@ -5,6 +5,7 @@ import com.graduate.work.model.dto.SimCardDto;
 import com.graduate.work.model.dto.SimCardPageDto;
 import com.graduate.work.model.entity.SimCard;
 import com.graduate.work.model.mapper.SimCardMapper;
+import com.graduate.work.model.types.SimCardStatus;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,8 @@ public class SimCardController {
 
 
     @PostMapping(path = "/update-status")
-    public void updateStatus(@RequestParam SimCard.Status status, @RequestBody List<String> ListIccid) {
-        simCardService.updateStatusByListSimCards(ListIccid, status);
+    public void updateStatus(@RequestParam SimCardStatus simCardStatus, @RequestBody List<String> ListIccid) {
+        simCardService.updateStatusByListSimCards(ListIccid, simCardStatus);
     }
 
 

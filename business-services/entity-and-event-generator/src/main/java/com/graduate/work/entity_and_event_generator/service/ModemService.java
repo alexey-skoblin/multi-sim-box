@@ -1,7 +1,7 @@
 package com.graduate.work.entity_and_event_generator.service;
 
 import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.executor.ExecutableService;
 import com.graduate.work.entity_and_event_generator.random.generator.ModemInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.ModemExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.ModemInternalUpdater;
@@ -22,7 +22,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @Setter(onMethod_ = {@Autowired})
-public class ModemService implements Executable<Modem> {
+public class ModemService implements ExecutableService<Modem> {
 
     private Randomizer randomizer;
     private ModemInitialStateGenerator modemRandomGenerator;

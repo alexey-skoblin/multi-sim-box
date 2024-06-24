@@ -2,11 +2,13 @@ package com.graduate.work.model.entity;
 
 
 import com.graduate.work.model.converter.Point2DConverter;
+import com.graduate.work.model.types.SimCardStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.awt.geom.Point2D;
 import java.util.HashMap;
+import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -17,13 +19,13 @@ import java.util.HashMap;
 public class SimCard {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String iccid;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private SimCardStatus simCardStatus;
 
     @Setter
     private String defNumber;
@@ -52,14 +54,20 @@ public class SimCard {
     @ManyToOne
     private Modem modem;
 
-    public void setStatus(Status status) {
-        if (this.status == status) {
+    @Setter
+    @OneToMany(mappedBy = "simCard", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "id")
+    @ToString.Exclude
+    private Map<Long, Task> tasks;
+
+    public void setSimCardStatus(SimCardStatus simCardStatus) {
+        if (this.simCardStatus == simCardStatus) {
             return;
         }
-        if (this.status == Status.ACTIVE) {
-            this.status = Status.INACTIVE;
-        } else if (this.status == Status.INACTIVE) {
-            this.status = Status.ACTIVE;
+        if (this.simCardStatus == SimCardStatus.ACTIVE) {
+            this.simCardStatus = SimCardStatus.INACTIVE;
+        } else if (this.simCardStatus == SimCardStatus.INACTIVE) {
+            this.simCardStatus = SimCardStatus.ACTIVE;
         }
         this.setLastActionDate(System.currentTimeMillis());
     }
@@ -79,7 +87,7 @@ public class SimCard {
 
             client.getSimCards().put(this.id, this);
         } else {
-            this.setStatus(Status.INACTIVE);
+            this.setSimCardStatus(SimCardStatus.INACTIVE);
         }
     }
 
@@ -99,9 +107,4 @@ public class SimCard {
         }
     }
 
-    @Getter
-    public enum Status {
-        ACTIVE,
-        INACTIVE
-    }
 }

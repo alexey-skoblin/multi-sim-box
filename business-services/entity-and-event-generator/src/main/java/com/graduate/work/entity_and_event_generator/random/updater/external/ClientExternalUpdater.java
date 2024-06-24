@@ -4,6 +4,7 @@ import com.graduate.work.entity_and_event_generator.random.updater.RandomAction;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.Facility;
 import com.graduate.work.model.entity.SimCard;
+import com.graduate.work.model.types.FacilityStatus;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
@@ -43,7 +44,7 @@ public class ClientExternalUpdater extends ExternalUpdater<Client> {
     RandomAction<Client> addFacility = (client) -> {
         Facility facility = facilityService.getRandomByClientNull();
         facility.setClient(client);
-        facility.setStatus(Facility.Status.ACTIVE);
+        facility.setFacilityStatus(FacilityStatus.ACTIVE);
         return client;
     };
 

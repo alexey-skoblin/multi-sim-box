@@ -20,22 +20,24 @@ public class EventRandomExecutor {
     ModemService modemService;
     FacilityService facilityService;
     SimCardService simCardService;
+    TaskService taskService;
 
     @Scheduled(fixedDelay = 1)
     public void execute() {
 //        log.info("Start Event Random Executor");
-        List<Executable<?>> list = List.of(
+        List<ExecutableService<?>> list = List.of(
                 clientService,
                 equipmentService,
                 modemService,
                 facilityService,
-                simCardService
+                simCardService,
+                taskService
         );
-        for (Executable<?> executable : list) {
+        for (ExecutableService<?> executableService : list) {
 //            log.info("Start add: {}", executable.getClass().getSimpleName());
-            executable.run(executable::add, COUNT_CREATING_ENTITIES);
+            executableService.run(executableService::add, COUNT_CREATING_ENTITIES);
 //            log.info("Start update: {}", executable.getClass().getSimpleName());
-            executable.run(executable::update, COUNT_UPDATING_ENTITIES);
+            executableService.run(executableService::update, COUNT_UPDATING_ENTITIES);
 //            log.info("Start getAll: {}", executable.getClass().getSimpleName());
 //            executable.run(executable::getAll, 1);
         }

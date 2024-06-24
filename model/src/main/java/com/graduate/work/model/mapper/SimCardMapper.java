@@ -9,6 +9,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface SimCardMapper {
+
     SimCardMapper INSTANCE = Mappers.getMapper(SimCardMapper.class);
 
     @Named("formatDefNumber")
@@ -27,7 +28,7 @@ public interface SimCardMapper {
     @Mapping(target = "clientLastName", expression = "java(simCard.getClient() != null ? simCard.getClient().getLastName() : \"\")")
     @Mapping(target = "clientEmail", expression = "java(simCard.getClient() != null ? simCard.getClient().getEmail() : \"\")")
     @Mapping(target = "clientIp", expression = "java(simCard.getClient() != null ? simCard.getClient().getIp() : \"\")")
-    @Mapping(target = "modemStatus", expression = "java(simCard.getModem() != null ? simCard.getModem().getStatus() : Modem.Status.INACTIVE)")
+    @Mapping(target = "modemStatus", expression = "java(simCard.getModem() != null ? simCard.getModem().getModemStatus() : ModemStatus.INACTIVE)")
     @Mapping(target = "modemImei", expression = "java(simCard.getModem() != null ? simCard.getModem().getImei() : \"\")")
     @Mapping(target = "modemEquipmentHostname", expression = "java(simCard.getModem() != null" +
             " && simCard.getModem().getEquipment() != null ? simCard.getModem().getEquipment().getHostname() : \"\")")
@@ -41,9 +42,9 @@ public interface SimCardMapper {
     @Mapping(target = "modemEquipmentFacilityLocation", expression = "java(simCard.getModem() != null" +
             " && simCard.getModem().getEquipment() != null && simCard.getModem().getEquipment().getFacility() != null" +
             " ? simCard.getModem().getEquipment().getFacility().getLocation() : new java.awt.geom.Point2D.Double(0, 0))")
-    @Mapping(target = "modemEquipmentFacilityStatus", expression = "java(simCard.getModem() != null" +
+    @Mapping(target = "modemEquipmentFacilityFacilityStatus", expression = "java(simCard.getModem() != null" +
             " && simCard.getModem().getEquipment() != null && simCard.getModem().getEquipment().getFacility() != null" +
-            " ? simCard.getModem().getEquipment().getFacility().getStatus() : Facility.Status.INACTIVE)")
+            " ? simCard.getModem().getEquipment().getFacility().getFacilityStatus() : FacilityStatus.INACTIVE)")
     @Mapping(target = "defNumber", source = "defNumber", qualifiedByName = "formatDefNumber")
     SimCardDto simCardToSimCardDto(SimCard simCard);
 

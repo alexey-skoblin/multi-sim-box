@@ -1,7 +1,7 @@
 package com.graduate.work.entity_and_event_generator.service;
 
 import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.executor.ExecutableService;
 import com.graduate.work.entity_and_event_generator.random.generator.EquipmentInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.EquipmentExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.EquipmentInternalUpdater;
@@ -21,7 +21,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @Setter(onMethod_ = {@Autowired})
-public class EquipmentService implements Executable<Equipment> {
+public class EquipmentService implements ExecutableService<Equipment> {
 
     private Randomizer randomizer;
     private EquipmentInitialStateGenerator equipmentRandomGenerator;

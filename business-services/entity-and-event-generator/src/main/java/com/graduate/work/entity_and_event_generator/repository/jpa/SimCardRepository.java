@@ -1,6 +1,7 @@
 package com.graduate.work.entity_and_event_generator.repository.jpa;
 
 import com.graduate.work.model.entity.SimCard;
+import com.graduate.work.model.types.SimCardStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -26,8 +27,8 @@ public interface SimCardRepository extends JpaRepository<SimCard, Long> {
 
     @Transactional
     @Modifying
-    @Query("update SimCard s set s.status = ?1 where s.iccid = ?2")
-    int updateStatusByIccid(SimCard.Status status, String iccid);
+    @Query("update SimCard s set s.simCardStatus = ?1 where s.iccid = ?2")
+    int updateStatusByIccid(SimCardStatus simCardStatus, String iccid);
 
     Page<SimCard> findAll(Specification<SimCard> specification, Pageable pageable);
 }

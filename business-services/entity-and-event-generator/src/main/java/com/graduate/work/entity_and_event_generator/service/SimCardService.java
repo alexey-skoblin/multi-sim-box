@@ -1,7 +1,7 @@
 package com.graduate.work.entity_and_event_generator.service;
 
 import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.executor.ExecutableService;
 import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.SimCardExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.SimCardInternalUpdater;
@@ -10,6 +10,7 @@ import com.graduate.work.entity_and_event_generator.repository.specification.Sim
 import com.graduate.work.model.dto.SimCardPageDto;
 import com.graduate.work.model.entity.Client;
 import com.graduate.work.model.entity.SimCard;
+import com.graduate.work.model.types.SimCardStatus;
 import jakarta.transaction.Transactional;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +28,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @Setter(onMethod_ = {@Autowired})
-public class SimCardService implements Executable<SimCard> {
+public class SimCardService implements ExecutableService<SimCard> {
 
     private Randomizer randomizer;
     private SimCardInitialStateGenerator simCardRandomGenerator;
@@ -99,9 +100,9 @@ public class SimCardService implements Executable<SimCard> {
     }
 
     @Transactional
-    public void updateStatusByListSimCards(List<String> listIccid, SimCard.Status status) {
+    public void updateStatusByListSimCards(List<String> listIccid, SimCardStatus simCardStatus) {
         for (String iccid : listIccid) {
-            int result = simCardRepository.updateStatusByIccid(status, iccid);
+            int result = simCardRepository.updateStatusByIccid(simCardStatus, iccid);
             if (result == 0) {
                 throw new IllegalArgumentException("Iccid " + iccid + " not found");
             }

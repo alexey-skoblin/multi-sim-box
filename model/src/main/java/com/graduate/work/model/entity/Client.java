@@ -14,24 +14,31 @@ import java.util.Map;
 @Builder
 @ToString
 public class Client {
-
-    @Setter
-    String name;
-    @Setter
-    String lastName;
-    @Setter
-    String login;
-    @Setter
-    String hash;
-    @Setter
-    String email;
-    @Setter
-    Role role;
-    @Setter
-    String ip;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter
+    private String name;
+
+    @Setter
+    private String lastName;
+
+    @Setter
+    private String login;
+
+    @Setter
+    private String hash;
+
+    @Setter
+    private String email;
+
+    @Setter
+    private Role role;
+
+    @Setter
+    private String ip;
+
     @Setter
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKey(name = "id")

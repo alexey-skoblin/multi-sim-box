@@ -1,7 +1,7 @@
 package com.graduate.work.entity_and_event_generator.service;
 
 import com.graduate.work.entity_and_event_generator.random.Randomizer;
-import com.graduate.work.entity_and_event_generator.random.executor.Executable;
+import com.graduate.work.entity_and_event_generator.random.executor.ExecutableService;
 import com.graduate.work.entity_and_event_generator.random.generator.ClientInitialStateGenerator;
 import com.graduate.work.entity_and_event_generator.random.updater.external.ClientExternalUpdater;
 import com.graduate.work.entity_and_event_generator.random.updater.internal.ClientInternalUpdater;
@@ -24,7 +24,7 @@ import java.util.List;
 @Service
 @Slf4j
 @Setter(onMethod_ = {@Autowired})
-public class ClientService implements Executable<Client> {
+public class ClientService implements ExecutableService<Client> {
 
     private Randomizer randomizer;
     private ClientInitialStateGenerator clientRandomGenerator;

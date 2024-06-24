@@ -2,6 +2,7 @@ package com.graduate.work.entity_and_event_generator.random.updater.external;
 
 import com.graduate.work.entity_and_event_generator.random.updater.RandomAction;
 import com.graduate.work.model.entity.*;
+import com.graduate.work.model.types.SimCardStatus;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class ModemExternalUpdater extends ExternalUpdater<Modem> {
         int index = randomizer.getRandomId(list.size());
         simCard = list.get(index);
         simCard.setModem(modem);
-        simCard.setStatus(SimCard.Status.ACTIVE);
+        simCard.setSimCardStatus(SimCardStatus.ACTIVE);
 //        simCard.setStatus(SimCard.Status.ACTIVE);
         return modem;
     };

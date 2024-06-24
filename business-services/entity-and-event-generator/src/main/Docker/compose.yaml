@@ -8,5 +8,5 @@ services:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=db
-    volumes:
-            - ../../../data/postgres:/var/lib/postgresql/data
+#    volumes:
+#            - ../../../data/postgres:/var/lib/postgresql/data

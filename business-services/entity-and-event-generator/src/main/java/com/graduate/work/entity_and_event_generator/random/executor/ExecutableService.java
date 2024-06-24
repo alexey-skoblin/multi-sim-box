@@ -2,7 +2,7 @@ package com.graduate.work.entity_and_event_generator.random.executor;
 
 import org.springframework.transaction.annotation.Transactional;
 
-public interface Executable<T> {
+public interface ExecutableService<T> {
 
     T getRandom();
 

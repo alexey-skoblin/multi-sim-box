@@ -2,6 +2,7 @@ package com.graduate.work.entity_and_event_generator.random.updater.internal;
 
 import com.graduate.work.entity_and_event_generator.random.generator.SimCardInitialStateGenerator;
 import com.graduate.work.model.entity.SimCard;
+import com.graduate.work.model.types.SimCardStatus;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -27,9 +28,9 @@ class SimCardInternalUpdaterTest {
     void updateStatusAndLastActionDate() {
         SimCard simCard = simCardRandomGenerator.create();
         log.info(simCard.toString());
-        simCard.setStatus(SimCard.Status.ACTIVE);
+        simCard.setSimCardStatus(SimCardStatus.ACTIVE);
         log.info(simCard.toString());
-        assertNotNull(simCard.getStatus());
+        assertNotNull(simCard.getSimCardStatus());
     }
 
     @Test
@@ -42,7 +43,7 @@ class SimCardInternalUpdaterTest {
     }
 
     @Test
-    void updateMobileOperator(){
+    void updateMobileOperator() {
         SimCard simCard = simCardRandomGenerator.create();
         log.info(simCard.toString());
         simCardRandomUpdater.getUpdateMobileOperator().activate(simCard);
@@ -51,7 +52,7 @@ class SimCardInternalUpdaterTest {
     }
 
     @Test
-    void updateTariff(){
+    void updateTariff() {
         SimCard simCard = simCardRandomGenerator.create();
         log.info(simCard.toString());
         simCardRandomUpdater.getUpdateTariff().activate(simCard);
@@ -60,7 +61,7 @@ class SimCardInternalUpdaterTest {
     }
 
     @Test
-    void updateLastLocation(){
+    void updateLastLocation() {
         SimCard simCard = simCardRandomGenerator.create();
         log.info(simCard.toString());
         simCardRandomUpdater.getUpdateLastLocation().activate(simCard);
@@ -69,7 +70,7 @@ class SimCardInternalUpdaterTest {
     }
 
     @Test
-    void updateTrafficForYesterday(){
+    void updateTrafficForYesterday() {
         SimCard simCard = simCardRandomGenerator.create();
         log.info(simCard.toString());
         simCardRandomUpdater.getUpdateTrafficForYesterday().activate(simCard);

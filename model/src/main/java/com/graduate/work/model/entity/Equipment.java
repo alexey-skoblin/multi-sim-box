@@ -4,7 +4,6 @@ package com.graduate.work.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,16 +17,16 @@ public class Equipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Setter
-    String hostname;
+    private String hostname;
 
     @Setter
-    String model;
+    private String model;
 
     @Setter
-    String serialNumber;
+    private String serialNumber;
 
     @OneToOne
     @ToString.Exclude

@@ -36,11 +36,6 @@ public class ClientController {
             String searchLogin,
             String searchEmail,
             String searchRole
-//            String search,
-//            String searchIccid,
-//            String searchDefNumber,
-//            String searchAddress,
-//            String searchSerialNumber
     ) {
         ClientPageDto clientPageDto = new ClientPageDto(page, size, sortingField, sortingOrder, searchName, searchLastName, searchLogin, searchEmail, searchRole);
         List<Client> clientList = clientService.getAll(clientPageDto);

@@ -1,6 +1,7 @@
 package com.graduate.work.model.entity;
 
 
+import com.graduate.work.model.types.ModemStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,11 +18,11 @@ import java.util.Map;
 public class Modem {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private ModemStatus modemStatus;
 
     private String imei;
 
@@ -35,18 +36,18 @@ public class Modem {
     @ToString.Exclude
     private Map<Long, SimCard> simCards;
 
-    public void setStatus(Status status){
-        if (this.status == status) {
+    public void setModemStatus(ModemStatus modemStatus) {
+        if (this.modemStatus == modemStatus) {
             return;
         }
-        if (this.status == Status.ACTIVE) {
-            this.status = Status.INACTIVE;
+        if (this.modemStatus == ModemStatus.ACTIVE) {
+            this.modemStatus = ModemStatus.INACTIVE;
             if (this.equipment != null) {
                 this.setEquipment(null);
             }
             this.clearSimCards();
-        } else if (this.status == Status.INACTIVE) {
-            this.status = Status.ACTIVE;
+        } else if (this.modemStatus == ModemStatus.INACTIVE) {
+            this.modemStatus = ModemStatus.ACTIVE;
         }
     }
 
@@ -64,7 +65,7 @@ public class Modem {
             }
             equipment.getModems().put(this.id, this);
         } else {
-            this.setStatus(Status.INACTIVE);
+            this.setModemStatus(ModemStatus.INACTIVE);
         }
     }
 
@@ -79,8 +80,4 @@ public class Modem {
         simCards.clear();
     }
 
-    public enum Status {
-        ACTIVE,
-        INACTIVE
-    }
 }

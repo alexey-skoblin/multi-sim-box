@@ -3,6 +3,7 @@ package com.graduate.work.entity_and_event_generator.random.updater.external;
 import com.graduate.work.entity_and_event_generator.random.updater.RandomAction;
 import com.graduate.work.model.entity.Equipment;
 import com.graduate.work.model.entity.Modem;
+import com.graduate.work.model.types.ModemStatus;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class EquipmentExternalUpdater extends ExternalUpdater<Equipment> {
         }
         Modem modem = modemService.getRandomByEquipmentNull();
         modem.setEquipment(equipment);
-        modem.setStatus(Modem.Status.ACTIVE);
+        modem.setModemStatus(ModemStatus.ACTIVE);
         return equipment;
     };
 

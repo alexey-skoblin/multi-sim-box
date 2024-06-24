@@ -2,6 +2,7 @@ package com.graduate.work.model.entity;
 
 
 import com.graduate.work.model.converter.Point2DConverter;
+import com.graduate.work.model.types.FacilityStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,18 +18,18 @@ import java.util.HashMap;
 public class Facility {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     @Setter
-    String address;
+    private String address;
 
     @Setter
     @Convert(converter = Point2DConverter.class)
-    Point2D.Double location;
+    private Point2D.Double location;
 
     @Enumerated(EnumType.STRING)
-    Status status;
+    private FacilityStatus facilityStatus;
 
     @ManyToOne
     @ToString.Exclude
@@ -37,17 +38,17 @@ public class Facility {
     @OneToOne
     private Equipment equipment;
 
-    public void setStatus(Status status) {
-        if (this.status == status) {
+    public void setFacilityStatus(FacilityStatus facilityStatus) {
+        if (this.facilityStatus == facilityStatus) {
             return;
         }
-        if (this.status == Status.ACTIVE) {
-            this.status = Status.INACTIVE;
+        if (this.facilityStatus == FacilityStatus.ACTIVE) {
+            this.facilityStatus = FacilityStatus.INACTIVE;
             if (this.equipment != null) {
                 this.setEquipment(null);
             }
-        } else if (this.status == Status.INACTIVE) {
-            this.status = Status.ACTIVE;
+        } else if (this.facilityStatus == FacilityStatus.INACTIVE) {
+            this.facilityStatus = FacilityStatus.ACTIVE;
         }
     }
 
@@ -65,7 +66,7 @@ public class Facility {
             }
             client.getFacilities().put(this.id, this);
         } else {
-            this.setStatus(Status.INACTIVE);
+            this.setFacilityStatus(FacilityStatus.INACTIVE);
         }
     }
 
@@ -82,12 +83,6 @@ public class Facility {
         if (equipment != null) {
             equipment.setFacility(this);
         }
-    }
-
-    @Getter
-    public enum Status {
-        ACTIVE,
-        INACTIVE
     }
 
 }
